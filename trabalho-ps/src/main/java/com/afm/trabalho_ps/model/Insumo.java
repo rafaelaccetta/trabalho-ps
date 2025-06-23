@@ -25,5 +25,4 @@ public class Insumo {
         this.nome = nome;
         this.quantidade = quantidade;
     }
-
 }
