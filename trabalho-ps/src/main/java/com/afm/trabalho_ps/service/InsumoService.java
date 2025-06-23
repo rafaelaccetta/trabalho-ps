@@ -15,19 +15,19 @@ public class InsumoService {
     @Autowired
     private InsumoRepository insumoRepository;
 
-    public List<Insumo> buscaTodos() {
+    public List<Insumo> listarTodos() {
         return insumoRepository.findAll();
     }
 
-    public Optional<Insumo> buscaPorId(Long id) {
+    public Optional<Insumo> buscar(Long id) {
         return insumoRepository.findById(id);
     }
 
-    public Insumo cria(Insumo insumo) {
+    public Insumo salvar(Insumo insumo) {
         return insumoRepository.save(insumo);
     }
 
-    public Insumo atualiza(Long id, Insumo insumoDetails) {
+    public Insumo atualizar(Long id, Insumo insumoDetails) {
         return insumoRepository.findById(id).map(insumo -> {
             insumo.setNome(insumoDetails.getNome());
             insumo.setDescricao(insumoDetails.getDescricao());
@@ -36,11 +36,11 @@ public class InsumoService {
         }).orElseThrow(() -> new RuntimeException("Insumo não encontrado com id " + id));
     }
 
-    public void deleta(Long id) {
+    public void deletar(Long id) {
         insumoRepository.deleteById(id);
     }
 
-    public void deletaTodos() {
+    public void deletarTodos() {
         insumoRepository.deleteAll();
     }
 }
