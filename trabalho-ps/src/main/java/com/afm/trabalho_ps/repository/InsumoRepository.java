@@ -9,3 +9,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface InsumoRepository extends JpaRepository<Insumo, Long> {
 }
+
