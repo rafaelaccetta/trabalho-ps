@@ -15,22 +15,18 @@ public class InsumoService {
     @Autowired
     private InsumoRepository insumoRepository;
 
-    // Retorna todos os insumos cadastrados
     public List<Insumo> buscaTodos() {
         return insumoRepository.findAll();
     }
 
-    // Busca um insumo pelo ID
     public Optional<Insumo> buscaPorId(Long id) {
         return insumoRepository.findById(id);
     }
 
-    // Salva um novo insumo
     public Insumo cria(Insumo insumo) {
         return insumoRepository.save(insumo);
     }
 
-    // Atualiza um insumo existente
     public Insumo atualiza(Long id, Insumo insumoDetails) {
         return insumoRepository.findById(id).map(insumo -> {
             insumo.setNome(insumoDetails.getNome());
@@ -41,12 +37,10 @@ public class InsumoService {
         }).orElseThrow(() -> new RuntimeException("Insumo não encontrado com id " + id));
     }
 
-    // Remove um insumo pelo ID
     public void deleta(Long id) {
         insumoRepository.deleteById(id);
     }
 
-    //Remove todos insumos
     public void deletaTodos() {
         insumoRepository.deleteAll();
     }
