@@ -32,7 +32,6 @@ public class InsumoService {
             insumo.setNome(insumoDetails.getNome());
             insumo.setDescricao(insumoDetails.getDescricao());
             insumo.setQuantidade(insumoDetails.getQuantidade());
-            // Adicione outros campos conforme necessário
             return insumoRepository.save(insumo);
         }).orElseThrow(() -> new RuntimeException("Insumo não encontrado com id " + id));
     }
