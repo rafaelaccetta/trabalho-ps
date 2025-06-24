@@ -1,5 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+
+type LoginForm = {
+    email: string
+    senha: string
+}
 
 const cardStyle: React.CSSProperties = {
     maxWidth: 400,
@@ -43,18 +48,28 @@ const buttonStyle: React.CSSProperties = {
     marginTop: 8,
 }
 
-type LoginForm = {
-    email: string
-    senha: string
-}
-
-const fazerLogin = (data: LoginForm) => {
-    console.log('Login:', data)
-    // Aqui você pode chamar sua função de autenticação
-}
-
 const LoginPage = () => {
     const { register, handleSubmit } = useForm<LoginForm>()
+    const [mensagem, setMensagem] = useState<string | null>(null)
+
+    const fazerLogin = async (data: LoginForm) => {
+        setMensagem(null)
+        try {
+            const response = await fetch('http://localhost:8080/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            })
+            if (response.ok) {
+                setMensagem('Login realizado com sucesso!')
+            } else {
+                const erro = await response.text()
+                setMensagem(erro)
+            }
+        } catch {
+            setMensagem('Erro ao conectar com o servidor')
+        }
+    }
 
     return (
         <div style={cardStyle}>
@@ -78,6 +93,18 @@ const LoginPage = () => {
                     Entrar
                 </button>
             </form>
+            {mensagem && (
+                <div style={{
+                    marginTop: 16,
+                    padding: 12,
+                    borderRadius: 6,
+                    background: mensagem.includes('sucesso') ? '#d4edda' : '#f8d7da',
+                    color: mensagem.includes('sucesso') ? '#155724' : '#721c24',
+                    border: mensagem.includes('sucesso') ? '1px solid #c3e6cb' : '1px solid #f5c6cb'
+                }}>
+                    {mensagem}
+                </div>
+            )}
         </div>
     )
 }

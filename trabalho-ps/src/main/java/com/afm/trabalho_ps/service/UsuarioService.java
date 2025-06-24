@@ -53,4 +53,8 @@ public class UsuarioService {
         usuarioRepository.deleteAll();
     }
 
+    public Optional<Usuario> buscarPorEmailESenha(String email, String senha) {
+        return usuarioRepository.findByEmailAndSenha(email, senha);
+    }
+
 }
