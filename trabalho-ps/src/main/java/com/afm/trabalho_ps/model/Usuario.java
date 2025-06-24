@@ -21,10 +21,16 @@ public class Usuario {
     private String nome;
     private String email;
     private String endereco;
-    public Usuario(String nome, String email, String endereco) {
+    private String dataNascimento;
+    private String senha;
+    private String telefone;
+
+    public Usuario(String nome, String email, String endereco, String dataNascimento, String senha, String telefone) {
         this.nome = nome;
         this.email = email;
         this.endereco = endereco;
+        this.dataNascimento = dataNascimento;
+        this.senha = senha;
+        this.telefone = telefone;
     }
-
 }

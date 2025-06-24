@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import type Usuario from '../interfaces/Usuario'
-
+import useCadastrarUsuario from '../hooks/useCadastrarUsuario'
 
 const cardStyle: React.CSSProperties = {
     maxWidth: 400,
@@ -45,23 +45,39 @@ const buttonStyle: React.CSSProperties = {
     marginTop: 8,
 }
 
-type UsuarioForm = Usuario
-
-const cadastrarUsuario = (data: UsuarioForm) => {
-    const novoUsuario: UsuarioForm = {
-        nome: data.nome,
-        email: data.email,
-        endereco: data.endereco,
-        dataNascimento: data.dataNascimento,
-        senha: data.senha,
-        telefone: data.telefone,
-    }
-    console.log(novoUsuario)
-    // useCadastrarUsuario();
+type UsuarioForm = {
+    nome: string
+    email: string
+    endereco: string
+    dataNascimento: string
+    senha: string  
+    telefone: string
 }
 
 const CadastroUsuarioPage = () => {
-    const { register, handleSubmit } = useForm<UsuarioForm>()
+    const { register, handleSubmit, reset } = useForm<UsuarioForm>()
+    const [mensagem, setMensagem] = useState<string | null>(null)
+
+    const cadastrarUsuario = async (data: UsuarioForm) => {
+        setMensagem(null)
+        const novoUsuario: Usuario = {
+            nome: data.nome,
+            email: data.email,
+            endereco: data.endereco,
+            dataNascimento: data.dataNascimento,
+            senha: data.senha,
+            telefone: data.telefone
+        }
+        try {
+            await useCadastrarUsuario(novoUsuario)
+            setMensagem('Usuário cadastrado com sucesso!')
+            reset()
+            setTimeout(() => setMensagem(null), 3000) 
+        } catch (error: any) {
+            setMensagem('Erro ao cadastrar usuário')
+            setTimeout(() => setMensagem(null), 3000)
+        }
+    }
 
     return (
         <div style={cardStyle}>
@@ -78,13 +94,6 @@ const CadastroUsuarioPage = () => {
                     type="email"
                     {...register('email')}
                     placeholder="Email"
-                    required
-                />
-                <input
-                    style={inputStyle}
-                    type="tel"
-                    {...register('telefone')}
-                    placeholder="Telefone"
                     required
                 />
                 <input
@@ -107,10 +116,29 @@ const CadastroUsuarioPage = () => {
                     placeholder="Senha"
                     required
                 />
+                <input
+                    style={inputStyle}
+                    type="tel"
+                    {...register('telefone')}
+                    placeholder="Telefone"
+                    required
+                />
                 <button style={buttonStyle} type="submit">
                     Cadastrar
                 </button>
             </form>
+            {mensagem && (
+                <div style={{
+                    marginTop: 16,
+                    padding: 12,
+                    borderRadius: 6,
+                    background: mensagem.includes('sucesso') ? '#d4edda' : '#f8d7da',
+                    color: mensagem.includes('sucesso') ? '#155724' : '#721c24',
+                    border: mensagem.includes('sucesso') ? '1px solid #c3e6cb' : '1px solid #f5c6cb'
+                }}>
+                    {mensagem}
+                </div>
+            )}
         </div>
     )
 }
