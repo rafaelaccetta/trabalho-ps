@@ -37,6 +37,7 @@ public class ItemProdutoService {
                 item.setQuantidade(novoItem.getQuantidade());
                 item.setPreco(novoItem.getPreco());
                 itemProdutoRepository.save(item);
+                return item;
             })
             .orElseThrow(() -> new RuntimeException("ItemProduto não encontrado com ID: " + id));
     }

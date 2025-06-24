@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,10 @@ public class ItemVenda {
     private int quantidade;
 
     private BigDecimal preco;
+
+    @ManyToOne
+    @JoinColumn(name = "venda_id")
+    private Venda venda;
 
     public ItemVenda(ItemProduto itemProduto, int quantidade, BigDecimal preco) {
         this.itemProduto = itemProduto;
