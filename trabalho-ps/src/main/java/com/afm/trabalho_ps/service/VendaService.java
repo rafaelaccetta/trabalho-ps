@@ -31,6 +31,7 @@ public class VendaService {
         return vendaRepository.findById(id).map(venda -> {
             venda.setEstado(detalhesVenda.getEstado());
             venda.setTotal(detalhesVenda.getTotal());
+            venda.setData(detalhesVenda.getData());
             return vendaRepository.save(venda);
         }).orElseThrow(() -> new RuntimeException("Venda não encontrada com id " + id));
     }
