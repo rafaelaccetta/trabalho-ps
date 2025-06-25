@@ -4,12 +4,12 @@ import java.util.List;
 
 public class GerenciadorNotificacaoEmail implements GerenciadorNotificacao{
 
-    private List<Admin> admins;
+    private List<EmailListener> admins;
 
     //IMPLEMENTAR SINGLETON
 
     public void notificaFaltaDeInsumo(Insumo insumo){
-        for (Admin admin : admins){
+        for (EmailListener admin : admins){
             admin.receberNotificacaoPorEmail("Foi necessário recusar uma encomenda porque o insumo " + insumo.getNome() + " não tem a quantidade necessária.");
         }
     }
