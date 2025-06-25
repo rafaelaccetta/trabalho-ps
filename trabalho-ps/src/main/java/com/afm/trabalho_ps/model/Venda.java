@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -18,6 +20,7 @@ public class Venda {
 
     private String estado;
     private Double total;
+    private LocalDate data;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -26,9 +29,10 @@ public class Venda {
     @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL)
     private List<ItemVenda> itens;
 
-    public Venda(String estado, Double total, Usuario usuario) {
+    public Venda(String estado, Double total, LocalDate data, Usuario usuario) {
         this.estado = estado;
         this.total = total;
+        this.data = data;
         this.usuario = usuario;
     }
 
