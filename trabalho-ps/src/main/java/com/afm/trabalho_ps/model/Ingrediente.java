@@ -19,9 +19,9 @@ public class Ingrediente {
 
     private long idProduto;
     private long idInsumo;
-    private long quantidade;
+    private int quantidade;
 
-    public Ingrediente(long idProduto, long idInsumo, long quantidade) {
+    public Ingrediente(long idProduto, long idInsumo, int quantidade) {
         this.idProduto = idProduto;
         this.idInsumo = idInsumo;
         this.quantidade = quantidade;

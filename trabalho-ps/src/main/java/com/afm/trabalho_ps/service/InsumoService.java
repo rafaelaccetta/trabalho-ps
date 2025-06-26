@@ -11,7 +11,6 @@ import com.afm.trabalho_ps.repository.InsumoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -54,7 +53,7 @@ public class InsumoService {
         insumoRepository.deleteAll();
     }
 
-    public boolean verificaInsumos(Produto produto){
+    public boolean verificaInsumos(Produto produto, int quantidade){
         boolean todosDisponiveis = true;
         List<Ingrediente> ingredientes = ingredienteRepository
             .findAll()
@@ -63,11 +62,24 @@ public class InsumoService {
             .toList();
         for (Ingrediente ingrediente : ingredientes) {
             Insumo insumo = this.buscar(ingrediente.getIdInsumo()).get();
-            if(insumo.getQuantidade() < ingrediente.getQuantidade()){
+            if(insumo.getQuantidade() < (ingrediente.getQuantidade()*quantidade)){
                 todosDisponiveis = false;
                 gerenciadorNotificacao.notificaFaltaDeInsumo(insumo);
             }
         }
         return todosDisponiveis;
     }
+
+    public void retiraInsumosParaEncomenda(Produto produto, int quantidade){
+        List<Ingrediente> ingredientes = ingredienteRepository
+            .findAll()
+            .stream()
+            .filter((ingrediente) -> ingrediente.getIdProduto() == produto.getId())
+            .toList();
+        for (Ingrediente ingrediente : ingredientes) {
+            Insumo insumo = this.buscar(ingrediente.getIdInsumo()).get();
+            insumo.setQuantidade(insumo.getQuantidade() - (ingrediente.getQuantidade() * quantidade));
+            this.atualizar(insumo.getId(), insumo);
+        }
+    }   
 }

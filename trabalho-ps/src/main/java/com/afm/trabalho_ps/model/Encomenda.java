@@ -12,6 +12,6 @@ import lombok.Setter;
 public class Encomenda {
     private Long idCliente;
     private Long idProduto;
-    private Long quantidade;
+    private int quantidade;
 
 }

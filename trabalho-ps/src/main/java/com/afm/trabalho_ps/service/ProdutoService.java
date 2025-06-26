@@ -2,7 +2,6 @@ package com.afm.trabalho_ps.service;
 
 import com.afm.trabalho_ps.model.Encomenda;
 import com.afm.trabalho_ps.model.Produto;
-import com.afm.trabalho_ps.repository.IngredienteRepository;
 import com.afm.trabalho_ps.repository.ProdutoRepository;
 import com.afm.trabalho_ps.util.TokenResponse;
 
@@ -63,8 +62,9 @@ public class ProdutoService {
     public TokenResponse encomendarProduto(Encomenda encomenda) throws Exception{
         Optional<Produto> produto = produtoRepository.findById(encomenda.getIdProduto());
         if (produto.isPresent()){
-            boolean r = insumoService.verificaInsumos(produto.get());
+            boolean r = insumoService.verificaInsumos(produto.get(), encomenda.getQuantidade());
             if(r) {
+                insumoService.retiraInsumosParaEncomenda(produto.get(), encomenda.getQuantidade());
                 return new TokenResponse(1);
             } else {
                 return new TokenResponse(0);
