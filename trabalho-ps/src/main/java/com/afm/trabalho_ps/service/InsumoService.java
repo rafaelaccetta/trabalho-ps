@@ -51,11 +51,11 @@ public class InsumoService {
 
     public boolean verificaInsumos(Produto produto){
         boolean todosDisponiveis = true;
-        for (Map.Entry<Insumo, Integer> insumo : produto.getInsumos().entrySet()){
-            int q = insumo.getKey().getQuantidade();
-            if(q < insumo.getValue()){
+        for (Map.Entry<Long, Long> insumo : produto.getInsumos().entrySet()){
+            Insumo i = this.buscar(insumo.getKey()).get();
+            if(i.getQuantidade() < insumo.getValue()){
                 todosDisponiveis = false;
-                gerenciadorNotificacao.notificaFaltaDeInsumo(insumo.getKey());
+                gerenciadorNotificacao.notificaFaltaDeInsumo(i);
             }
         };
         return todosDisponiveis;
