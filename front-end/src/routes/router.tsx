@@ -5,6 +5,7 @@ import RelatorioPage from "../pages/RelatorioPage";
 import CadastroPage from "../pages/CadastroPage";
 import CadastroUsuarioPage from "../pages/CadastroUsuarioPage";
 import LoginPage from "../pages/LoginPage";
+import EncomendaPage from "../pages/EncomendaPage";
 
 const router = createBrowserRouter([
     {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
                 ]
             },
             {path: "login", element: <LoginPage />},
+            {path: "encomenda", element: <EncomendaPage />}
         ]
     }
 ])
