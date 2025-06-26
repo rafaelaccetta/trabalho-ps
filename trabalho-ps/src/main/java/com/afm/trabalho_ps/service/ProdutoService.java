@@ -56,7 +56,7 @@ public class ProdutoService {
         produtoRepository.deleteAll();
     }
 
-    public Object encomendarProduto(Encomenda encomenda){
+    public Object encomendarProduto(Encomenda encomenda) throws Exception{
         Optional<Produto> produto = produtoRepository.findById(encomenda.getIdProduto());
         if (produto.isPresent()){
             boolean r = insumoService.verificaInsumos(produto.get());

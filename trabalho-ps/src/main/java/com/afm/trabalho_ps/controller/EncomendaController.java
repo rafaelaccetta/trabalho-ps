@@ -19,8 +19,13 @@ public class EncomendaController {
     private ProdutoService produtoService;
 
     @PostMapping
-    private Object encomendarProduto(@RequestBody Encomenda encomenda){
-        produtoService.encomendarProduto(encomenda);
+    public Object encomendarProduto(@RequestBody Encomenda encomenda){
+        try{
+            return produtoService.encomendarProduto(encomenda);
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+            return Integer.valueOf(2);
+        }
     }
 
 }
