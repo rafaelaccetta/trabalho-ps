@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.afm.trabalho_ps.model.Encomenda;
 import com.afm.trabalho_ps.service.ProdutoService;
+import com.afm.trabalho_ps.util.TokenResponse;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
@@ -19,12 +20,12 @@ public class EncomendaController {
     private ProdutoService produtoService;
 
     @PostMapping
-    public Object encomendarProduto(@RequestBody Encomenda encomenda){
+    public TokenResponse encomendarProduto(@RequestBody Encomenda encomenda){
         try{
             return produtoService.encomendarProduto(encomenda);
         } catch(Exception e) {
             System.out.println(e.getMessage());
-            return Integer.valueOf(2);
+            return new TokenResponse(2);
         }
     }
 

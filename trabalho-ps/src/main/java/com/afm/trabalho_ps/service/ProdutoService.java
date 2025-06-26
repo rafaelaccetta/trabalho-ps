@@ -3,6 +3,8 @@ package com.afm.trabalho_ps.service;
 import com.afm.trabalho_ps.model.Encomenda;
 import com.afm.trabalho_ps.model.Produto;
 import com.afm.trabalho_ps.repository.ProdutoRepository;
+import com.afm.trabalho_ps.util.TokenResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
@@ -56,14 +58,14 @@ public class ProdutoService {
         produtoRepository.deleteAll();
     }
 
-    public Object encomendarProduto(Encomenda encomenda) throws Exception{
+    public TokenResponse encomendarProduto(Encomenda encomenda) throws Exception{
         Optional<Produto> produto = produtoRepository.findById(encomenda.getIdProduto());
         if (produto.isPresent()){
             boolean r = insumoService.verificaInsumos(produto.get());
             if(r) {
-                return Integer.valueOf(1);
+                return new TokenResponse(1);
             } else {
-                return Integer.valueOf(0);
+                return new TokenResponse(0);
             }
         } else {
             throw new Exception("Produto não encontrado");
