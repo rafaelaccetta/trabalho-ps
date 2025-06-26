@@ -2,11 +2,14 @@
 
 package com.afm.trabalho_ps.service;
 
+import com.afm.trabalho_ps.model.GerenciadorNotificacao;
 import com.afm.trabalho_ps.model.Insumo;
+import com.afm.trabalho_ps.model.Produto;
 import com.afm.trabalho_ps.repository.InsumoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -14,6 +17,8 @@ public class InsumoService {
 
     @Autowired
     private InsumoRepository insumoRepository;
+
+    private GerenciadorNotificacao gerenciadorNotificacao;
 
     public List<Insumo> listarTodos() {
         return insumoRepository.findAll();
@@ -42,5 +47,17 @@ public class InsumoService {
 
     public void deletarTodos() {
         insumoRepository.deleteAll();
+    }
+
+    public boolean verificaInsumos(Produto produto){
+        boolean todosDisponiveis = true;
+        for (Map.Entry<Insumo, Integer> insumo : produto.getInsumos().entrySet()){
+            int q = insumo.getKey().getQuantidade();
+            if(q < insumo.getValue()){
+                todosDisponiveis = false;
+                gerenciadorNotificacao.notificaFaltaDeInsumo(insumo.getKey());
+            }
+        };
+        return todosDisponiveis;
     }
 }

@@ -1,5 +1,6 @@
 package com.afm.trabalho_ps.service;
 
+import com.afm.trabalho_ps.model.Encomenda;
 import com.afm.trabalho_ps.model.Produto;
 import com.afm.trabalho_ps.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ public class ProdutoService {
 
     @Autowired
     private final ProdutoRepository produtoRepository;
+
+    @Autowired private InsumoService insumoService;
 
     // CONSTRUTOR
     public ProdutoService(ProdutoRepository produtoRepository) {
@@ -51,6 +54,20 @@ public class ProdutoService {
 
     public void deletarTodos() {
         produtoRepository.deleteAll();
+    }
+
+    public Object encomendarProduto(Encomenda encomenda){
+        Optional<Produto> produto = produtoRepository.findById(encomenda.getIdProduto());
+        if (produto.isPresent()){
+            boolean r = insumoService.verificaInsumos(produto.get());
+            if(r) {
+                return Integer.valueOf(1);
+            } else {
+                return Integer.valueOf(0);
+            }
+        } else {
+            throw new Exception("Produto não encontrado");
+        }
     }
 
 }
