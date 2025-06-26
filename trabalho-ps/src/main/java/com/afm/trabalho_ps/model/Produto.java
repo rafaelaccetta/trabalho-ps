@@ -1,5 +1,7 @@
 package com.afm.trabalho_ps.model;
 
+import java.util.Map;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +23,7 @@ public class Produto {
 
     private String nome;
     private String descricao;
+    private Map<Insumo, Integer> insumos; 
 
     //Lista de Insumos (para encomenda)?
 
