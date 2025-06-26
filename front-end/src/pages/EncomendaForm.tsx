@@ -73,11 +73,10 @@ const EncomendaForm = () => {
             } else {
               setMensagem('A encomenda não pode ser realizada porque o produto não foi encontrado :(')
             }
-            setMensagem('Encomenda realizada com sucesso!')
             reset()
             setTimeout(() => setMensagem(null), 3000) 
         } catch (error: any) {
-            setMensagem('Erro ao cadastrar usuário')
+            setMensagem('Erro ao encomendar produto :(')
             setTimeout(() => setMensagem(null), 3000)
         }
     }

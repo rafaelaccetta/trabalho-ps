@@ -5,6 +5,7 @@ const EncomendaPage = () => {
   return (
     <>
         <h4>Encomenda:</h4>
+        <EncomendaForm />
     </>
   )
 }
