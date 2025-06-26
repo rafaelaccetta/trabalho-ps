@@ -2,6 +2,7 @@ package com.afm.trabalho_ps.service;
 
 import com.afm.trabalho_ps.model.Encomenda;
 import com.afm.trabalho_ps.model.Produto;
+import com.afm.trabalho_ps.repository.IngredienteRepository;
 import com.afm.trabalho_ps.repository.ProdutoRepository;
 import com.afm.trabalho_ps.util.TokenResponse;
 
@@ -15,7 +16,8 @@ public class ProdutoService {
     @Autowired
     private final ProdutoRepository produtoRepository;
 
-    @Autowired private InsumoService insumoService;
+    @Autowired
+    private InsumoService insumoService;
 
     // CONSTRUTOR
     public ProdutoService(ProdutoRepository produtoRepository) {

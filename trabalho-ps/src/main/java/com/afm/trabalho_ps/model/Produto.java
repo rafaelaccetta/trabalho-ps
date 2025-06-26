@@ -23,7 +23,6 @@ public class Produto {
 
     private String nome;
     private String descricao;
-    private Map<Long, Long> insumos; 
 
     //Lista de Insumos (para encomenda)?
 

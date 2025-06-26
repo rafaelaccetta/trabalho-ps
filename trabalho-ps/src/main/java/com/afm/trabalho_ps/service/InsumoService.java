@@ -3,8 +3,10 @@
 package com.afm.trabalho_ps.service;
 
 import com.afm.trabalho_ps.model.GerenciadorNotificacao;
+import com.afm.trabalho_ps.model.Ingrediente;
 import com.afm.trabalho_ps.model.Insumo;
 import com.afm.trabalho_ps.model.Produto;
+import com.afm.trabalho_ps.repository.IngredienteRepository;
 import com.afm.trabalho_ps.repository.InsumoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,9 @@ public class InsumoService {
 
     @Autowired
     private InsumoRepository insumoRepository;
+
+    @Autowired
+    private IngredienteRepository ingredienteRepository;
 
     private GerenciadorNotificacao gerenciadorNotificacao;
 
@@ -51,13 +56,18 @@ public class InsumoService {
 
     public boolean verificaInsumos(Produto produto){
         boolean todosDisponiveis = true;
-        for (Map.Entry<Long, Long> insumo : produto.getInsumos().entrySet()){
-            Insumo i = this.buscar(insumo.getKey()).get();
-            if(i.getQuantidade() < insumo.getValue()){
+        List<Ingrediente> ingredientes = ingredienteRepository
+            .findAll()
+            .stream()
+            .filter((ingrediente) -> ingrediente.getIdProduto() == produto.getId())
+            .toList();
+        for (Ingrediente ingrediente : ingredientes) {
+            Insumo insumo = this.buscar(ingrediente.getIdInsumo()).get();
+            if(insumo.getQuantidade() < ingrediente.getQuantidade()){
                 todosDisponiveis = false;
-                gerenciadorNotificacao.notificaFaltaDeInsumo(i);
+                gerenciadorNotificacao.notificaFaltaDeInsumo(insumo);
             }
-        };
+        }
         return todosDisponiveis;
     }
 }
