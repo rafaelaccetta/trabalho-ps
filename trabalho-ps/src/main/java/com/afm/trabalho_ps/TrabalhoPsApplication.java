@@ -8,6 +8,7 @@ import com.afm.trabalho_ps.repository.InsumoRepository;
 import com.afm.trabalho_ps.service.InsumoService;
 import com.afm.trabalho_ps.model.Ingrediente;
 import com.afm.trabalho_ps.repository.IngredienteRepository;
+import com.afm.trabalho_ps.service.RelatorioProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -30,6 +31,9 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 
 	@Autowired
 	private IngredienteRepository ingredienteRepository;
+
+	@Autowired
+	private RelatorioProdutoService relatorioProdutoService;
 
     public static void main(String[] args) {
         SpringApplication.run(TrabalhoPsApplication.class, args);
@@ -714,5 +718,8 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			insumoService.buscarIdPorNome("Essencia de camomila"),
 			15
 		));
+
+// ===================== RELATÓRIO DE PRODUTOS E INGREDIENTES =====================
+        relatorioProdutoService.imprimirRelatorioProdutosEIngredientes();
     }
 }
