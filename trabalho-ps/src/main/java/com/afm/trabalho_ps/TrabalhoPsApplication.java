@@ -2,6 +2,11 @@ package com.afm.trabalho_ps;
 
 import com.afm.trabalho_ps.model.Produto;
 import com.afm.trabalho_ps.repository.ProdutoRepository;
+import com.afm.trabalho_ps.service.ProdutoService;
+import com.afm.trabalho_ps.model.Insumo;
+import com.afm.trabalho_ps.repository.InsumoRepository;
+import com.afm.trabalho_ps.model.Ingrediente;
+import com.afm.trabalho_ps.repository.IngredienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +17,15 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 
     @Autowired
     private ProdutoRepository produtoRepository;
+
+	@Autowired
+	private ProdutoService produtoService;
+
+	@Autowired
+	private InsumoRepository insumoRepository;
+
+	@Autowired
+	private IngredienteRepository ingredienteRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(TrabalhoPsApplication.class, args);
@@ -78,6 +92,16 @@ public class TrabalhoPsApplication implements CommandLineRunner {
         produtoRepository.save(new Produto(
             "Vela Aromática",
             "Vela aromática feita com cera de soja, pavio de madeira e óleos essenciais naturais. Proporciona uma experiência sensorial única, com aromas envolventes que criam um ambiente acolhedor e relaxante."
+        ));
+        insumoRepository.save(new Insumo(
+            "Hidratante Corporal",
+			2,
+            "Fórmula suave, nutritiva, com consistência cremosa e rápida absorção. Ideal para todos os tipos de pele. Contém ativos antioxidantes que auxiliam na hidratação e regeneração da pele. Principais ativos: Manteiga de Manga, Óleo Vegetal de Castanha do Pará, Óleo Vegetal de Pracaxi, Cera de Coco, Glicerina Vegetal, Lactado de Sódio, Vitamina E, água desmineralizada, Azeite de oliva, Óleos essenciais e Oleoresina Alecrim. "
+        ));
+        ingredienteRepository.save(new Ingrediente(
+            produtoService.findByName("Hidratante Corporal").getId(),
+            1,
+            100
         ));
     }
 }

@@ -74,4 +74,13 @@ public class ProdutoService {
         }
     }
 
+    public Long findIdByName(String nome) {
+        for (Produto produto : produtoRepository.findAll()) {
+            if (produto.getNome().equalsIgnoreCase(nome)) {
+                return produto.getId();
+            }
+        }
+        return null;
+    }
+
 }
