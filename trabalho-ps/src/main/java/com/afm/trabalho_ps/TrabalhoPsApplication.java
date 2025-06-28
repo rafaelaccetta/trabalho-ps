@@ -9,6 +9,14 @@ import com.afm.trabalho_ps.service.InsumoService;
 import com.afm.trabalho_ps.model.Ingrediente;
 import com.afm.trabalho_ps.repository.IngredienteRepository;
 import com.afm.trabalho_ps.service.RelatorioProdutoService;
+import com.afm.trabalho_ps.model.Usuario;
+import com.afm.trabalho_ps.repository.UsuarioRepository;
+import com.afm.trabalho_ps.model.ItemProduto;
+import com.afm.trabalho_ps.repository.ItemProdutoRepository;
+import com.afm.trabalho_ps.model.Venda;
+import com.afm.trabalho_ps.repository.VendaRepository;
+import com.afm.trabalho_ps.model.ItemVenda;
+import com.afm.trabalho_ps.dto.RelatorioVendasDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -34,6 +42,16 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 
 	@Autowired
 	private RelatorioProdutoService relatorioProdutoService;
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	@Autowired
+	private ItemProdutoRepository itemProdutoRepository;
+	@Autowired
+	private VendaRepository vendaRepository;
+
+    @Autowired
+    private com.afm.trabalho_ps.service.RelatorioService relatorioService;
 
     public static void main(String[] args) {
         SpringApplication.run(TrabalhoPsApplication.class, args);
@@ -496,11 +514,6 @@ public class TrabalhoPsApplication implements CommandLineRunner {
             2
         ));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Alcool Cetilico"),
-            4
-        ));
-		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
             insumoService.buscarIdPorNome("Base glicerinada branca vegana"),
             600	
@@ -723,5 +736,64 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 
 // ===================== RELATORIO DE PRODUTOS E INGREDIENTES =====================
         relatorioProdutoService.imprimirRelatorioProdutosEIngredientes();
+
+// ===================== DADOS MINIMOS PARA RELATORIO DE VENDAS =====================
+        // 1. Usuario
+        Usuario usuario1 = new Usuario("Maria Silva", "maria@email.com", "Rua das Flores, 123", "1990-01-01", "senha123", "11999999999");
+        Usuario usuario2 = new Usuario("Joao Souza", "joao@email.com", "Av. Brasil, 456", "1985-05-10", "senha456", "11988888888");
+        Usuario usuario3 = new Usuario("Ana Lima", "ana@email.com", "Rua Verde, 789", "1992-09-20", "senha789", "11977777777");
+        usuarioRepository.save(usuario1);
+        usuarioRepository.save(usuario2);
+        usuarioRepository.save(usuario3);
+        // Produtos já cadastrados
+        Produto produto1 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Shampoo de Dolomita")).findFirst().orElseThrow();
+        Produto produto2 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Sabonete de Maracuja")).findFirst().orElseThrow();
+        Produto produto3 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Hidratante Corporal")).findFirst().orElseThrow();
+        // ItemProdutos
+        ItemProduto itemProduto1 = itemProdutoRepository.findAll().stream().filter(ip -> ip.getProduto().getId().equals(produto1.getId())).findFirst().orElseGet(() -> itemProdutoRepository.save(new ItemProduto(produto1, 10, new java.math.BigDecimal("20.00"))));
+        ItemProduto itemProduto2 = itemProdutoRepository.findAll().stream().filter(ip -> ip.getProduto().getId().equals(produto2.getId())).findFirst().orElseGet(() -> itemProdutoRepository.save(new ItemProduto(produto2, 15, new java.math.BigDecimal("12.00"))));
+        ItemProduto itemProduto3 = itemProdutoRepository.findAll().stream().filter(ip -> ip.getProduto().getId().equals(produto3.getId())).findFirst().orElseGet(() -> itemProdutoRepository.save(new ItemProduto(produto3, 8, new java.math.BigDecimal("30.00"))));
+        // Venda 1
+        Venda venda1 = new Venda("FINALIZADA", 40.0, java.time.LocalDate.now(), usuario1);
+        ItemVenda itemVenda1 = new ItemVenda(itemProduto1, 2, new java.math.BigDecimal("20.00"));
+        itemVenda1.setVenda(venda1);
+        venda1.setItens(java.util.Arrays.asList(itemVenda1));
+        vendaRepository.save(venda1);
+        // Venda 2
+        Venda venda2 = new Venda("FINALIZADA", 24.0, java.time.LocalDate.now().minusDays(1), usuario2);
+        ItemVenda itemVenda2 = new ItemVenda(itemProduto2, 2, new java.math.BigDecimal("12.00"));
+        itemVenda2.setVenda(venda2);
+        venda2.setItens(java.util.Arrays.asList(itemVenda2));
+        vendaRepository.save(venda2);
+        // Venda 3
+        Venda venda3 = new Venda("FINALIZADA", 60.0, java.time.LocalDate.now().minusDays(2), usuario3);
+        ItemVenda itemVenda3 = new ItemVenda(itemProduto3, 2, new java.math.BigDecimal("30.00"));
+        itemVenda3.setVenda(venda3);
+        venda3.setItens(java.util.Arrays.asList(itemVenda3));
+        vendaRepository.save(venda3);
+        // Venda 4 (com mais de um item)
+        Venda venda4 = new Venda("FINALIZADA", 62.0, java.time.LocalDate.now().minusDays(3), usuario1);
+        ItemVenda itemVenda4a = new ItemVenda(itemProduto1, 1, new java.math.BigDecimal("20.00"));
+        ItemVenda itemVenda4b = new ItemVenda(itemProduto2, 1, new java.math.BigDecimal("12.00"));
+        ItemVenda itemVenda4c = new ItemVenda(itemProduto3, 1, new java.math.BigDecimal("30.00"));
+        itemVenda4a.setVenda(venda4);
+        itemVenda4b.setVenda(venda4);
+        itemVenda4c.setVenda(venda4);
+        venda4.setItens(java.util.Arrays.asList(itemVenda4a, itemVenda4b, itemVenda4c));
+        vendaRepository.save(venda4);
+
+        // ===================== RELATORIO DE VENDAS =====================
+        RelatorioVendasDTO relatorio = relatorioService.gerarRelatorio();
+        System.out.println("\n===== RELATÓRIO DE VENDAS =====\n");
+        System.out.println("Total vendido: " + relatorio.totalVendido);
+        System.out.println("Total de itens vendidos: " + relatorio.totalItensVendidos);
+        System.out.println("Produto mais vendido: " + relatorio.produtoMaisVendido + " (" + relatorio.quantidadeMaisVendida + ")\n");
+        for (RelatorioVendasDTO.VendaResumo vendaResumo : relatorio.vendas) {
+            System.out.println("Venda #" + vendaResumo.id + " | Cliente: " + vendaResumo.cliente + " | Data: " + vendaResumo.data + " | Valor: " + vendaResumo.valorTotal);
+            for (RelatorioVendasDTO.ItemResumo item : vendaResumo.itens) {
+                System.out.println("    - " + item.produto + ": " + item.quantidade);
+            }
+            System.out.println();
+        }
     }
 }
