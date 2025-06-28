@@ -74,13 +74,13 @@ public class ProdutoService {
         }
     }
 
-    public Long findIdByName(String nome) {
+    public Long buscarIdPorNome(String nome) {
         for (Produto produto : produtoRepository.findAll()) {
             if (produto.getNome().equalsIgnoreCase(nome)) {
                 return produto.getId();
             }
         }
-        return null;
+        throw new RuntimeException("Insumo não encontrado com nome: " + nome);
     }
 
 }

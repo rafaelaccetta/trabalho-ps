@@ -81,5 +81,15 @@ public class InsumoService {
             insumo.setQuantidade(insumo.getQuantidade() - (ingrediente.getQuantidade() * quantidade));
             this.atualizar(insumo.getId(), insumo);
         }
-    }   
+    }
+
+    public Long buscarIdPorNome(String nome) {
+        List<Insumo> insumos = insumoRepository.findAll();
+        for (Insumo insumo : insumos) {
+            if (insumo.getNome().equalsIgnoreCase(nome)) {
+                return insumo.getId();
+            }
+        }
+        throw new RuntimeException("Insumo não encontrado com nome: " + nome);
+    }
 }
