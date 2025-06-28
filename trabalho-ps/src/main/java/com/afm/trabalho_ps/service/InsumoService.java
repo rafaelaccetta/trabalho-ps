@@ -39,7 +39,6 @@ public class InsumoService {
     public Insumo atualizar(Long id, Insumo insumoDetails) {
         return insumoRepository.findById(id).map(insumo -> {
             insumo.setNome(insumoDetails.getNome());
-            insumo.setDescricao(insumoDetails.getDescricao());
             insumo.setQuantidade(insumoDetails.getQuantidade());
             return insumoRepository.save(insumo);
         }).orElseThrow(() -> new RuntimeException("Insumo não encontrado com id " + id));

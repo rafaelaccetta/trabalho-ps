@@ -20,11 +20,9 @@ public class Insumo {
 
     private String nome;
     private int quantidade;
-    private String descricao;
 
-    public Insumo(String nome, int quantidade, String descricao) {
+    public Insumo(String nome, int quantidade) {
         this.nome = nome;
         this.quantidade = quantidade;
-        this.descricao = descricao;
     }
 }
