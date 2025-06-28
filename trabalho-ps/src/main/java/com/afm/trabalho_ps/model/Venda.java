@@ -26,7 +26,7 @@ public class Venda {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ItemVenda> itens;
 
     public Venda(String estado, Double total, LocalDate data, Usuario usuario) {
