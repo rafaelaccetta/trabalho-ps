@@ -44,63 +44,64 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 
 //		============================================================ CADASTRO DE PRODUTOS ================================================================
 
+        // Padronizar nomes SEM acento, til, cedilha ou qualquer caractere especial
         produtoRepository.save(new Produto(
             "Hidratante Corporal",
-            "Fórmula suave, nutritiva, com consistência cremosa e rápida absorção. Ideal para todos os tipos de pele. Contém ativos antioxidantes que auxiliam na hidratação e regeneração da pele. Principais ativos: Manteiga de Manga, Óleo Vegetal de Castanha do Pará, Óleo Vegetal de Pracaxi, Cera de Coco, Glicerina Vegetal, Lactado de Sódio, Vitamina E, água desmineralizada, Azeite de oliva, Óleos essenciais e Oleoresina Alecrim. "
+            "Formula suave, nutritiva, com consistencia cremosa e rapida absorcao. Ideal para todos os tipos de pele. Contem ativos antioxidantes que auxiliam na hidratacao e regeneracao da pele. Principais ativos: Manteiga de Manga, Oleo Vegetal de Castanha do Para, Oleo Vegetal de Pracaxi, Cera de Coco, Glicerina Vegetal, Lactato de Sodio, Vitamina E, agua desmineralizada, Azeite de oliva, Oleos essenciais e Oleoresina Alecrim. "
         ));
         produtoRepository.save(new Produto(
             "Shampoo de Dolomita",
-            "O Shampoo de Dolomita é um produto inovador que combina a pureza da dolomita com ingredientes naturais para proporcionar uma limpeza suave e eficaz aos cabelos. A dolomita, um mineral rico em magnésio e cálcio, é conhecida por suas propriedades benéficas para a saúde capilar. Este shampoo é formulado para nutrir, fortalecer e revitalizar os fios, deixando-os macios, brilhantes e saudáveis."
+            "O Shampoo de Dolomita e um produto inovador que combina a pureza da dolomita com ingredientes naturais para proporcionar uma limpeza suave e eficaz aos cabelos. A dolomita, um mineral rico em magnesio e calcio, e conhecida por suas propriedades beneficas para a saude capilar. Este shampoo e formulado para nutrir, fortalecer e revitalizar os fios, deixando-os macios, brilhantes e saudaveis."
         ));
         produtoRepository.save(new Produto(
             "Shampoo de Spirulina",
-            "O Shampoo de Spirulina é um produto inovador que combina a poderosa alga spirulina com ingredientes naturais para proporcionar uma limpeza suave e eficaz aos cabelos. A spirulina, rica em proteínas, vitaminas e minerais, é conhecida por suas propriedades benéficas para a saúde capilar. Este shampoo é formulado para nutrir, fortalecer e revitalizar os fios, deixando-os macios, brilhantes e saudáveis."
+            "O Shampoo de Spirulina e um produto inovador que combina a poderosa alga spirulina com ingredientes naturais para proporcionar uma limpeza suave e eficaz aos cabelos. A spirulina, rica em proteinas, vitaminas e minerais, e conhecida por suas propriedades beneficas para a saude capilar. Este shampoo e formulado para nutrir, fortalecer e revitalizar os fios, deixando-os macios, brilhantes e saudaveis."
         ));
         produtoRepository.save(new Produto(
             "Shampoo Detox",
-            "Um Shampoo de limpeza profunda que renova a saúde dos cabelos, controla a oleosidade e remove resíduos sem desidratar os fios. Ele é RECOMENDADO PARA TODOS OS TIPOS DE CABELOS. Possui em sua composição o Carvão Ativado e a Argila preta eles agem como removedor de toxinas e auxilia no crescimento dos fios, já o Óleo essencial de Menta refresca e ajuda no combate à descamação excessiva do couro cabeludo (caspa)."
+            "Um Shampoo de limpeza profunda que renova a saude dos cabelos, controla a oleosidade e remove residuos sem desidratar os fios. Ele e RECOMENDADO PARA TODOS OS TIPOS DE CABELOS. Possui em sua composicao o Carvao Ativado e a Argila preta eles agem como removedor de toxinas e auxilia no crescimento dos fios, ja o Oleo essencial de Menta refresca e ajuda no combate a descamacao excessiva do couro cabeludo (caspa)."
         ));
         produtoRepository.save(new Produto(
-            "Sachê Perfumado",
-            "Nossos sachês perfumados são cuidadosamente elaborados com essência premium vermiculita, um mineral que potencializa a fixação e a durabilidade das fragrâncias, liberando o aroma de forma suave e contínua por semanas. Perfeitos para perfumar gavetas, closets, bolsas, carros ou qualquer cantinho especial, eles proporcionam bem-estar e aconchego ao ambiente, transformando a rotina com os benefícios da aromaterapia."
+            "Sache Perfumado",
+            "Nossos saches perfumados sao cuidadosamente elaborados com essencia premium vermiculita, um mineral que potencializa a fixacao e a durabilidade das fragrancias, liberando o aroma de forma suave e continua por semanas. Perfeitos para perfumar gavetas, closets, bolsas, carros ou qualquer cantinho especial, eles proporcionam bem-estar e aconchego ao ambiente, transformando a rotina com os beneficios da aromaterapia."
         ));
         produtoRepository.save(new Produto(
             "Home Spray",
-            "Desfrute de ambientes cheirosos e tenha uma experiência única e marcante com nossas coleções de Home Spray com perfumes exclusivos da linha de produtos para casa.. São diversas fragrâncias desenvolvidas especialmente para conquistar ambientes mais íntimos, românticos ou urbanos."
+            "Desfrute de ambientes cheirosos e tenha uma experiencia unica e marcante com nossas colecoes de Home Spray com perfumes exclusivos da linha de produtos para casa.. Sao diversas fragrancias desenvolvidas especialmente para conquistar ambientes mais intimos, romanticos ou urbanos."
         ));
         produtoRepository.save(new Produto(
             "Sabonete de Arroz e Lavanda",
-            "Experimente o poder da natureza com nosso Sabonete Natural de Arroz e Lavanda, formulado para proporcionar um cuidado suave e eficaz para a sua pele. Com uma combinação única de ingredientes naturais, esse sabonete oferece benefícios incríveis, como:"
+            "Experimente o poder da natureza com nosso Sabonete Natural de Arroz e Lavanda, formulado para proporcionar um cuidado suave e eficaz para a sua pele. Com uma combinacao unica de ingredientes naturais, esse sabonete oferece beneficios incriveis, como:"
         ));
         produtoRepository.save(new Produto(
-            "Sabonete de Capim Limão",
-            "Auxilia na limpeza profunda da pele, combatendo impurezas e bactérias. Ajuda a proteger a pele contra os danos dos radicais livres. O aroma suave do capim limão proporciona uma sensação de frescor e tranquilidade."
+            "Sabonete de Capim Limao",
+            "Auxilia na limpeza profunda da pele, combatendo impurezas e bacterias. Ajuda a proteger a pele contra os danos dos radicais livres. O aroma suave do capim limao proporciona uma sensacao de frescor e tranquilidade."
         ));
         produtoRepository.save(new Produto(
             "Sabonete de Pimenta Rosa",
-            "Quer cuidar da sua pele com um toque natural e eficaz? Nosso Sabonete de Pimenta Rosa com Óleo Essencial de Hortelã-Pimenta é a escolha perfeita para quem busca alívio e frescor no dia a dia. Com propriedades adstringentes, antissépticas e antifúngicas, ele auxilia no tratamento de dermatites, psoríase e outras irritações da pele."
+            "Quer cuidar da sua pele com um toque natural e eficaz? Nosso Sabonete de Pimenta Rosa com Oleo Essencial de Hortela-Pimenta e a escolha perfeita para quem busca alivio e frescor no dia a dia. Com propriedades adstringentes, antisepticas e antifungicas, ele auxilia no tratamento de dermatites, psoriase e outras irritacoes da pele."
         ));
         produtoRepository.save(new Produto(
             "Sabonete de Camomila",
-            "O Sabonete de Camomila é o cuidado diário que a sua pele merece. Rico em flavonoides e cumarina, ingredientes naturais com propriedades calmantes e cicatrizantes, ele proporciona uma limpeza profunda e suave, respeitando o equilíbrio natural da pele Com ação hidratante e regeneradora, evita o ressecamento e melhora a textura da pele, deixando-a com um aspecto mais saudável, iluminado e jovem. Sua fórmula delicada auxilia no clareamento de manchas, promove a elasticidade e combate o aspecto seco e envelhecido."
+            "O Sabonete de Camomila e o cuidado diario que a sua pele merece. Rico em flavonoides e cumarina, ingredientes naturais com propriedades calmantes e cicatrizantes, ele proporciona uma limpeza profunda e suave, respeitando o equilibrio natural da pele Com acao hidratante e regeneradora, evita o ressecamento e melhora a textura da pele, deixando-a com um aspecto mais saudavel, iluminado e jovem. Sua formula delicada auxilia no clareamento de manchas, promove a elasticidade e combate o aspecto seco e envelhecido."
         ));
         produtoRepository.save(new Produto(
             "Sabonete de Maracuja",
-            "Promove hidratação e cicatrização ao mesmo tempo. A adição de suas sementes na composição do produto, produz uma esfoliação leve e a esperada sensação de limpeza. Sua apresentação em duas camadas dá ao sabonete uma interessante lembrança da fruta."
+            "Promove hidratacao e cicatrizacao ao mesmo tempo. A adicao de suas sementes na composicao do produto, produz uma esfoliacao leve e a esperada sensacao de limpeza. Sua apresentacao em duas camadas da ao sabonete uma interessante lembranca da fruta."
         ));
         produtoRepository.save(new Produto(
-            "Vela Aromática",
-            "Vela aromática feita com cera de soja, pavio de madeira e óleos essenciais naturais. Proporciona uma experiência sensorial única, com aromas envolventes que criam um ambiente acolhedor e relaxante."
+            "Vela Aromatica",
+            "Vela aromatica feita com cera de soja, pavio de madeira e oleos essenciais naturais. Proporciona uma experiencia sensorial unica, com aromas envolventes que criam um ambiente acolhedor e relaxante."
         ));
 
 //		============================================================ CADASTRO DE INSUMOS ================================================================
 
         insumoRepository.save(new Insumo(
-            "Óleo de Ricino",
+            "Oleo de Ricino",
 			10
         ));
 		insumoRepository.save(new Insumo(
-			"Manteiga de Cupuaçu",
+			"Manteiga de Cupuacu",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -108,7 +109,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Cera de Carnaúba",
+			"Cera de Carnauba",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -116,7 +117,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Spirulina em pó",
+			"Spirulina em po",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -124,11 +125,11 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Extrato de Capim Limão",
+			"Extrato de Capim Limao",
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Ácido Láctico",
+			"Acido Lactico",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -140,11 +141,11 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Oleos essenciais de Capim Limão",
+			"Oleo essencial de Capim Limao",
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Dolomita em pó",
+			"Dolomita em po",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -160,15 +161,15 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Extrato de Hortelã",
+			"Extrato de Hortela",
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Oleo essencial de Hortelã-Pimenta",
+			"Oleo essencial de Hortela-Pimenta",
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Carvão Ativado",
+			"Carvao Ativado",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -192,7 +193,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Castanha do Pará em pó",
+			"Castanha do Para em po",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -208,7 +209,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Óxido de Cromo Verde",
+			"Oxido de Cromo Verde",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -240,7 +241,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Semente de Maracujá",
+			"Semente de Maracuja",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -248,7 +249,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Alcool Cetílico",
+			"Alcool Cetilico",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -264,7 +265,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Manteiga de Karité",
+			"Manteiga de Karite",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -276,7 +277,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			10
 		));
 		insumoRepository.save(new Insumo(
-			"Essencia de algodão",
+			"Essencia de algodao",
 			10
 		));
 		insumoRepository.save(new Insumo(
@@ -293,210 +294,211 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 		));
 //		============================================================ CADASTRO DE INGREDIENTES ================================================================
 
+        // Padronizar buscas de ingredientes
         ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
             insumoService.buscarIdPorNome("Oleo de Ricino"),
-            10	
+            10
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Manteiga de Cupuaçu"),
-            10	
+            insumoService.buscarIdPorNome("Manteiga de Cupuacu"),
+            10
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
             insumoService.buscarIdPorNome("BTMS"),
-            4	
+            4
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Cera de Carnaúba"),
-            10	
+            insumoService.buscarIdPorNome("Cera de Carnauba"),
+            10
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
             insumoService.buscarIdPorNome("SCI"),
-            100	
+            100
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Spirulina em pó"),
-            30	
+            insumoService.buscarIdPorNome("Spirulina em po"),
+            30
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
             insumoService.buscarIdPorNome("Betaina"),
-            8	
+            8
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Capim Limão"),
-            4	
+            insumoService.buscarIdPorNome("Extrato de Capim Limao"),
+            4
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Acido Láctico"),
-            2	
+            insumoService.buscarIdPorNome("Acido Lactico"),
+            2
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
             insumoService.buscarIdPorNome("Oleoresina de Alecrim"),
-            1	
+            1
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
             insumoService.buscarIdPorNome("Nipaguarde"),
-            1	
+            1
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Oleo Essencial de Capim Limão"),
-            2	
+            insumoService.buscarIdPorNome("Oleo essencial de Capim Limao"),
+            2
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Alcool Cetílico"),
-            4	
+            insumoService.buscarIdPorNome("Alcool Cetilico"),
+            4
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
             insumoService.buscarIdPorNome("Oleo de Ricino"),
-            10	
+            10
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
             insumoService.buscarIdPorNome("Manteiga de Manga"),
-            10	
+            10
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
             insumoService.buscarIdPorNome("BTMS"),
-            4	
+            4
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Cera de Carnaúba"),
-            10	
+            insumoService.buscarIdPorNome("Cera de Carnauba"),
+            10
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
             insumoService.buscarIdPorNome("SCI"),
-            100	
+            100
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Dolomita em pó"),
-            30	
+            insumoService.buscarIdPorNome("Dolomita em po"),
+            30
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
             insumoService.buscarIdPorNome("Betaina"),
-            8	
+            8
         ));
-		ingredienteRepository.save(new Ingrediente(
+        ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
             insumoService.buscarIdPorNome("Extrato de Camomila"),
-            4	
+            4
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Acido Láctico"),
-            2	
+            insumoService.buscarIdPorNome("Acido Lactico"),
+            2
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
             insumoService.buscarIdPorNome("Oleoresina de Alecrim"),
-            1	
+            1
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
             insumoService.buscarIdPorNome("Nipaguarde"),
-            1	
+            1
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Oleo Essencial de Jasmin"),
-            2	
+            insumoService.buscarIdPorNome("Oleo essencial de Jasmin"),
+            2
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
             insumoService.buscarIdPorNome("Violeta Gensiana"),
-            5	
+            5
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Alcool Cetílico"),
-            4	
+            insumoService.buscarIdPorNome("Alcool Cetilico"),
+            4
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
             insumoService.buscarIdPorNome("Oleo de Ricino"),
-            10	
+            10
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
             insumoService.buscarIdPorNome("Manteiga de Ucuuba"),
-            10	
+            10
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
             insumoService.buscarIdPorNome("BTMS"),
-            4	
+            4
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Cera de Carnaúba"),
-            10	
+            insumoService.buscarIdPorNome("Cera de Carnauba"),
+            10
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
             insumoService.buscarIdPorNome("SCI"),
-            100	
+            100
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Carvão Ativado"),
-            20	
+            insumoService.buscarIdPorNome("Carvao Ativado"),
+            20
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
             insumoService.buscarIdPorNome("Argila Preta"),
-            20	
+            20
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
             insumoService.buscarIdPorNome("Betaina"),
-            8	
+            8
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Extrato de Hortelã"),
-            4	
+            insumoService.buscarIdPorNome("Extrato de Hortela"),
+            4
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Acido Láctico"),
-            2	
+            insumoService.buscarIdPorNome("Acido Lactico"),
+            2
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
             insumoService.buscarIdPorNome("Oleoresina de Alecrim"),
-            1	
+            1
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
             insumoService.buscarIdPorNome("Nipaguarde"),
-            1	
+            1
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Oleo Essencial de Hortelã-Pimenta"),
-            2	
+            insumoService.buscarIdPorNome("Oleo Essencial de Hortela-Pimenta"),
+            2
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Alcool Cetílico"),
-            4	
+            insumoService.buscarIdPorNome("Alcool Cetilico"),
+            4
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
@@ -510,7 +512,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
         ));
 		ingredienteRepository.save(new Ingrediente(
             produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
-            insumoService.buscarIdPorNome("Castanha do Pará em pó"),
+            insumoService.buscarIdPorNome("Castanha do Para em po"),
             10	
         ));
 		ingredienteRepository.save(new Ingrediente(
@@ -524,32 +526,32 @@ public class TrabalhoPsApplication implements CommandLineRunner {
             5	
         ));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limão"),
+            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
             insumoService.buscarIdPorNome("Base glicerinada branca vegana"),
             600	
         ));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limão"),
-            insumoService.buscarIdPorNome("Extrato de Capim Limão"),
+            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
+            insumoService.buscarIdPorNome("Extrato de Capim Limao"),
             15	
         ));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limão"),
+            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
             insumoService.buscarIdPorNome("Lauril Vegetal"),
             10	
         ));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limão"),
-            insumoService.buscarIdPorNome("Oleo Essencial de Capim Limão"),
+            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
+            insumoService.buscarIdPorNome("Oleo Essencial de Capim Limao"),
             5	
         ));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limão"),
-            insumoService.buscarIdPorNome("Óxido de Cromo Verde"),
+            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
+            insumoService.buscarIdPorNome("Oxido de Cromo Verde"),
             1	
         ));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limão"),
+            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
             insumoService.buscarIdPorNome("Glicerina bidestilada"),
             5	
         ));
@@ -570,7 +572,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Pimenta Rosa"),
-			insumoService.buscarIdPorNome("Oleo Essencial de Hortelã-Pimenta"),
+			insumoService.buscarIdPorNome("Oleo Essencial de Hortela-Pimenta"),
 			5	
 		));
 		ingredienteRepository.save(new Ingrediente(
@@ -640,7 +642,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
-			insumoService.buscarIdPorNome("Alcool Cetílico"),
+			insumoService.buscarIdPorNome("Alcool Cetilico"),
 			15	
 		));
 		ingredienteRepository.save(new Ingrediente(
@@ -650,7 +652,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
-			insumoService.buscarIdPorNome("Manteiga de Karité"),
+			insumoService.buscarIdPorNome("Manteiga de Karite"),
 			63	
 		));
 		ingredienteRepository.save(new Ingrediente(
@@ -690,7 +692,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sache Perfumado"),
-			insumoService.buscarIdPorNome("Essencia de algodão"),
+			insumoService.buscarIdPorNome("Essencia de algodao"),
 			25
 		));
 		ingredienteRepository.save(new Ingrediente(
@@ -705,21 +707,21 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Home Spray"),
-			insumoService.buscarIdPorNome("Essencia de algodão"),
+			insumoService.buscarIdPorNome("Essencia de algodao"),
 			20
 		));
 		ingredienteRepository.save(new Ingrediente(
-			produtoService.buscarIdPorNome("Vela Aromática"),
+			produtoService.buscarIdPorNome("Vela Aromatica"),
 			insumoService.buscarIdPorNome("Cera vegetal de coco"),
 			150
 		));
 		ingredienteRepository.save(new Ingrediente(
-			produtoService.buscarIdPorNome("Vela Aromática"),
+			produtoService.buscarIdPorNome("Vela Aromatica"),
 			insumoService.buscarIdPorNome("Essencia de camomila"),
 			15
 		));
 
-// ===================== RELATÓRIO DE PRODUTOS E INGREDIENTES =====================
+// ===================== RELATORIO DE PRODUTOS E INGREDIENTES =====================
         relatorioProdutoService.imprimirRelatorioProdutosEIngredientes();
     }
 }
