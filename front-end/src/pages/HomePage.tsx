@@ -16,14 +16,12 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <div className="home-card">
-        <h1>Bem-vindo ao Sistema de Produtos Naturais</h1>
+        <h1>Bem-vindo ao Sistema Atelier Flor de Macela</h1>
         <p className="home-desc">Gerencie produtos, insumos, usuários, encomendas e relatórios de forma simples e eficiente.</p>
         <nav className="home-nav">
           <Link to="/cadastro" className="home-link">Cadastro de Produtos e Insumos</Link>
-          <Link to="/cadastro/usuario" className="home-link">Cadastro de Usuário</Link>
           <Link to="/encomenda" className="home-link">Encomendar Produto</Link>
           <Link to="/relatorio" className="home-link">Relatórios</Link>
-          <Link to="/login" className="home-link">Login</Link>
         </nav>
       </div>
     </div>
