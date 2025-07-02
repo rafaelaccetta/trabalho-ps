@@ -11,9 +11,11 @@ import java.math.BigDecimal;
 import java.util.*;
 
 @Service
-public class RelatorioService {
+public class RelatorioVendasService {
     @Autowired
     private VendaRepository vendaRepository;
+
+    private RelatorioVendasStrategy strategy = new RelatorioVendasDetalhadoStrategy(); // padrão detalhado
 
     public RelatorioVendasDTO gerarRelatorio() {
         List<Venda> vendas = vendaRepository.findAll();
@@ -51,5 +53,14 @@ public class RelatorioService {
         dto.produtoMaisVendido = produtoQuantidade.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse("");
         dto.quantidadeMaisVendida = produtoQuantidade.values().stream().max(Integer::compareTo).orElse(0);
         return dto;
+    }
+
+    public void setStrategy(RelatorioVendasStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public void imprimirRelatorio() {
+        RelatorioVendasDTO dto = gerarRelatorio();
+        strategy.imprimirRelatorio(dto);
     }
 }

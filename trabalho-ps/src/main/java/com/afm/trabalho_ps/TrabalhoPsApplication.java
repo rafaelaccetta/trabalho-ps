@@ -51,7 +51,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 	private VendaRepository vendaRepository;
 
     @Autowired
-    private com.afm.trabalho_ps.service.RelatorioService relatorioService;
+    private com.afm.trabalho_ps.service.RelatorioVendasService relatorioService;
 
     public static void main(String[] args) {
         SpringApplication.run(TrabalhoPsApplication.class, args);

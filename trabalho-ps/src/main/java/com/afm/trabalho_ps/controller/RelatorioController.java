@@ -1,7 +1,7 @@
 package com.afm.trabalho_ps.controller;
 
 import com.afm.trabalho_ps.dto.RelatorioVendasDTO;
-import com.afm.trabalho_ps.service.RelatorioService;
+import com.afm.trabalho_ps.service.RelatorioVendasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/relatorio")
 public class RelatorioController {
     @Autowired
-    private RelatorioService relatorioService;
+    private RelatorioVendasService relatorioService;
 
     @GetMapping("/vendas")
     public RelatorioVendasDTO relatorioVendas() {
