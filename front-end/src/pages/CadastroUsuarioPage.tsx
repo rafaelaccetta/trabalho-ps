@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import type Usuario from '../interfaces/Usuario'
 import useCadastrarUsuario from '../hooks/useCadastrarUsuario'
 
@@ -57,6 +58,7 @@ type UsuarioForm = {
 const CadastroUsuarioPage = () => {
     const { register, handleSubmit, reset } = useForm<UsuarioForm>()
     const [mensagem, setMensagem] = useState<string | null>(null)
+    const navigate = useNavigate()
 
     const cadastrarUsuario = async (data: UsuarioForm) => {
         setMensagem(null)
@@ -72,7 +74,10 @@ const CadastroUsuarioPage = () => {
             await useCadastrarUsuario(novoUsuario)
             setMensagem('Usuário cadastrado com sucesso!')
             reset()
-            setTimeout(() => setMensagem(null), 3000) 
+            setTimeout(() => {
+                setMensagem(null)
+                navigate('/login')
+            }, 1500)
         } catch (error: any) {
             setMensagem('Erro ao cadastrar usuário')
             setTimeout(() => setMensagem(null), 3000)
