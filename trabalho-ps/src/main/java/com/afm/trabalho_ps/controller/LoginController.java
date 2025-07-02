@@ -23,7 +23,13 @@ public class LoginController {
         String senha = loginData.get("senha");
         Optional<Usuario> usuario = usuarioService.buscarPorEmailESenha(email, senha);
         if (usuario.isPresent()) {
-            return ResponseEntity.ok(usuario.get());
+            // Retorna um token fake junto com o nome e email
+            Map<String, Object> response = Map.of(
+                "token", java.util.UUID.randomUUID().toString(),
+                "nome", usuario.get().getNome(),
+                "email", usuario.get().getEmail()
+            );
+            return ResponseEntity.ok(response);
         } else {
             return ResponseEntity.status(401).body("Usuário ou senha inválidos");
         }

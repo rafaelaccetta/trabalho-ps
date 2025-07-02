@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 type LoginForm = {
     email: string
@@ -51,6 +52,7 @@ const buttonStyle: React.CSSProperties = {
 const LoginPage = () => {
     const { register, handleSubmit } = useForm<LoginForm>()
     const [mensagem, setMensagem] = useState<string | null>(null)
+    const navigate = useNavigate()
 
     const fazerLogin = async (data: LoginForm) => {
         setMensagem(null)
@@ -61,7 +63,13 @@ const LoginPage = () => {
                 body: JSON.stringify(data),
             })
             if (response.ok) {
+                const result = await response.json()
+                // Salva qualquer valor como token para liberar o acesso
+                localStorage.setItem('token', result.email || 'token')
                 setMensagem('Login realizado com sucesso!')
+                setTimeout(() => {
+                  navigate('/')
+                }, 800)
             } else {
                 const erro = await response.text()
                 setMensagem(erro)

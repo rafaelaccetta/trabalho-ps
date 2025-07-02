@@ -823,6 +823,12 @@ public class TrabalhoPsApplication implements CommandLineRunner {
         usuarioRepository.save(usuario1);
         usuarioRepository.save(usuario2);
         usuarioRepository.save(usuario3);
+
+        // Usuários do grupo para login de teste
+        usuarioRepository.save(new Usuario("Miguel Jehle", "migueljehle@github.com", "Rua 1", "1995-01-01", "12345678", "11999990001"));
+        usuarioRepository.save(new Usuario("Vania", "vaniacourses@github.com", "Rua 2", "1990-02-02", "12345678", "11999990002"));
+        // ...adicione mais membros se necessário
+
         // Produtos já cadastrados
         Produto produto1 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Shampoo de Dolomita")).findFirst().orElseThrow();
         Produto produto2 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Sabonete de Maracuja")).findFirst().orElseThrow();
