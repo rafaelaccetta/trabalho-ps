@@ -20,10 +20,12 @@ public class Ingrediente {
     private long idProduto;
     private long idInsumo;
     private int quantidade;
+    private String unidadeMedida; // mg ou ml
 
-    public Ingrediente(long idProduto, long idInsumo, int quantidade) {
+    public Ingrediente(long idProduto, long idInsumo, int quantidade, String unidadeMedida) {
         this.idProduto = idProduto;
         this.idInsumo = idInsumo;
         this.quantidade = quantidade;
+        this.unidadeMedida = unidadeMedida;
     }
 }

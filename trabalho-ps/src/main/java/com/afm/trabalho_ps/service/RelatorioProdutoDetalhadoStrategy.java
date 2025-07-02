@@ -17,7 +17,7 @@ public class RelatorioProdutoDetalhadoStrategy implements RelatorioProdutoStrate
                 if (ing.getIdProduto() == produto.getId()) {
                     Insumo insumo = insumos.stream().filter(i -> i.getId().equals(ing.getIdInsumo())).findFirst().orElse(null);
                     String nomeInsumo = insumo != null ? insumo.getNome() : "(Insumo não encontrado)";
-                    System.out.println("  - " + nomeInsumo + ": " + ing.getQuantidade());
+                    System.out.println("  - " + nomeInsumo + ": " + ing.getQuantidade() + " " + (ing.getUnidadeMedida() != null ? ing.getUnidadeMedida() : "mg"));
                     temIngrediente = true;
                 }
             }
