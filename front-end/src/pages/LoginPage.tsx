@@ -101,6 +101,13 @@ const LoginPage = () => {
                     Entrar
                 </button>
             </form>
+            <button
+                style={{ ...buttonStyle, background: '#43a047', marginTop: 20 }}
+                type="button"
+                onClick={() => navigate('/cadastro/usuario')}
+            >
+                Criar nova conta
+            </button>
             {mensagem && (
                 <div style={{
                     marginTop: 16,
