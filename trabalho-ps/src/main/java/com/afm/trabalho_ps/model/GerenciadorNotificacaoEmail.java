@@ -14,8 +14,4 @@ public class GerenciadorNotificacaoEmail implements GerenciadorNotificacao{
         }
     }
 
-    public void notificaRespostaEncomenda(Usuario cliente, Produto produto, int quantidade, boolean confirmado){
-
-    }
-
 }
