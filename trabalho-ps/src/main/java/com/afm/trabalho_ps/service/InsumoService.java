@@ -22,6 +22,7 @@ public class InsumoService {
     @Autowired
     private IngredienteRepository ingredienteRepository;
 
+    @Autowired
     private GerenciadorNotificacao gerenciadorNotificacao;
 
     public List<Insumo> listarTodos() {
