@@ -1,0 +1,82 @@
+.relatorio-container {
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  min-height: 80vh;
+  overflow-y: auto;
+}
+
+.relatorio-titulo {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 2rem;
+  color: #2d3a4a;
+}
+
+.relatorio-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.relatorio-card {
+  background: #f7f9fa;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  padding: 20px 24px;
+  border-left: 5px solid #6c63ff;
+  transition: box-shadow 0.2s;
+}
+.relatorio-card:hover {
+  box-shadow: 0 4px 24px rgba(108,99,255,0.12);
+}
+
+.relatorio-produto-nome {
+  margin: 0 0 8px 0;
+  color: #6c63ff;
+  font-size: 1.3rem;
+}
+
+.relatorio-produto-desc {
+  margin: 0 0 12px 0;
+  color: #444;
+}
+
+.relatorio-ingredientes {
+  margin: 8px 0 0 0;
+  padding-left: 18px;
+}
+
+.relatorio-ingrediente-item {
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.relatorio-ingrediente-nome {
+  font-weight: 600;
+  color: #2d3a4a;
+}
+
+.relatorio-sem-ingrediente {
+  color: #888;
+  margin-left: 12px;
+}
+
+.relatorio-vazio {
+  text-align: center;
+  color: #888;
+  margin-top: 32px;
+}
+
+.relatorio-loading, .relatorio-erro {
+  text-align: center;
+  margin-top: 48px;
+  color: #6c63ff;
+  font-size: 1.2rem;
+}
