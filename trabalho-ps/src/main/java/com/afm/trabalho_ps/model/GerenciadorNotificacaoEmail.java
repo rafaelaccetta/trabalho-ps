@@ -2,11 +2,12 @@ package com.afm.trabalho_ps.model;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GerenciadorNotificacaoEmail implements GerenciadorNotificacao{
 
     private List<EmailListener> admins;
-
-    //IMPLEMENTAR SINGLETON
 
     public void notificaFaltaDeInsumo(Insumo insumo){
         for (EmailListener admin : admins){
