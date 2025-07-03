@@ -7,6 +7,7 @@ import CadastroUsuarioPage from "../pages/CadastroUsuarioPage";
 import CadastroInsumoPage from "../pages/CadastroInsumoPage";
 import LoginPage from "../pages/LoginPage";
 import EncomendaPage from "../pages/EncomendaPage";
+import CadastroProdutoPage from "../pages/CadastroProdutoPage";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
                 element: <CadastroPage />,
                 children: [
                     {path: "usuario", element: <CadastroUsuarioPage />},
-                    {path: "insumo", element: <CadastroInsumoPage />}
+                    {path: "insumo", element: <CadastroInsumoPage />},
+                    {path: "produto", element: <CadastroProdutoPage />}
                 ]
             },
             {path: "login", element: <LoginPage />},
