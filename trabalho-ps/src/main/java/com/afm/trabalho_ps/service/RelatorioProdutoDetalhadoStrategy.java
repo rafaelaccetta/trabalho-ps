@@ -3,32 +3,36 @@ package com.afm.trabalho_ps.service;
 import com.afm.trabalho_ps.model.Produto;
 import com.afm.trabalho_ps.model.Ingrediente;
 import com.afm.trabalho_ps.model.Insumo;
+import com.afm.trabalho_ps.dto.RelatorioProdutoDTO;
+import com.afm.trabalho_ps.dto.ProdutoDTO;
+import com.afm.trabalho_ps.dto.IngredienteDTO;
 import java.util.List;
+import java.util.ArrayList;
 
 public class RelatorioProdutoDetalhadoStrategy implements RelatorioProdutoStrategy {
     @Override
-    public Object gerarRelatorio(List<Produto> produtos, List<Ingrediente> ingredientes, List<Insumo> insumos) {
-        // Monta um objeto estruturado para o relatório detalhado
-        List<Object> relatorio = new java.util.ArrayList<>();
+    public RelatorioProdutoDTO gerarRelatorio(List<Produto> produtos, List<Ingrediente> ingredientes, List<Insumo> insumos) {
+        RelatorioProdutoDTO dto = new RelatorioProdutoDTO();
+        List<ProdutoDTO> produtosDTO = new ArrayList<>();
         for (Produto produto : produtos) {
-            java.util.Map<String, Object> prodMap = new java.util.HashMap<>();
-            prodMap.put("nome", produto.getNome());
-            prodMap.put("descricao", produto.getDescricao());
-            java.util.List<java.util.Map<String, Object>> ingredientesList = new java.util.ArrayList<>();
+            ProdutoDTO prodDTO = new ProdutoDTO();
+            prodDTO.nome = produto.getNome();
+            prodDTO.descricao = produto.getDescricao();
+            List<IngredienteDTO> ingredientesDTO = new ArrayList<>();
             for (Ingrediente ing : ingredientes) {
                 if (ing.getIdProduto() == produto.getId()) {
                     Insumo insumo = insumos.stream().filter(i -> i.getId().equals(ing.getIdInsumo())).findFirst().orElse(null);
-                    String nomeInsumo = insumo != null ? insumo.getNome() : "(Insumo não encontrado)";
-                    java.util.Map<String, Object> ingMap = new java.util.HashMap<>();
-                    ingMap.put("insumo", nomeInsumo);
-                    ingMap.put("quantidade", ing.getQuantidade());
-                    ingMap.put("unidadeMedida", ing.getUnidadeMedida() != null ? ing.getUnidadeMedida() : "mg");
-                    ingredientesList.add(ingMap);
+                    IngredienteDTO ingDTO = new IngredienteDTO();
+                    ingDTO.insumo = insumo != null ? insumo.getNome() : "(Insumo não encontrado)";
+                    ingDTO.quantidade = ing.getQuantidade();
+                    ingDTO.unidadeMedida = ing.getUnidadeMedida() != null ? ing.getUnidadeMedida() : "mg";
+                    ingredientesDTO.add(ingDTO);
                 }
             }
-            prodMap.put("ingredientes", ingredientesList);
-            relatorio.add(prodMap);
+            prodDTO.ingredientes = ingredientesDTO;
+            produtosDTO.add(prodDTO);
         }
-        return relatorio;
+        dto.produtos = produtosDTO;
+        return dto;
     }
 }

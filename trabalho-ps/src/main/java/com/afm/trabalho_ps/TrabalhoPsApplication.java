@@ -17,6 +17,8 @@ import com.afm.trabalho_ps.model.Venda;
 import com.afm.trabalho_ps.repository.VendaRepository;
 import com.afm.trabalho_ps.model.ItemVenda;
 import com.afm.trabalho_ps.dto.RelatorioVendasDTO;
+import com.afm.trabalho_ps.dto.RelatorioProdutoDTO;
+import com.afm.trabalho_ps.service.RelatorioVendasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -812,8 +814,6 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			"ml"
 		));
 
-// ===================== RELATORIO DE PRODUTOS E INGREDIENTES =====================
-        relatorioProdutoService.imprimirRelatorioProdutosEIngredientes();
 
 // ===================== DADOS MINIMOS PARA RELATORIO DE VENDAS =====================
         // 1. Usuario
