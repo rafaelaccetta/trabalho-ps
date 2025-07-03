@@ -879,5 +879,15 @@ public class TrabalhoPsApplication implements CommandLineRunner {
             }
             System.out.println();
         }
+
+        // Usuário admin para login diferenciado
+        usuarioRepository.save(new Usuario(
+            "Administrador",
+            "admin@admin.com",
+            "Rua do Admin, 1",
+            "1980-01-01",
+            "password",
+            "11999990000"
+        ));
     }
 }
