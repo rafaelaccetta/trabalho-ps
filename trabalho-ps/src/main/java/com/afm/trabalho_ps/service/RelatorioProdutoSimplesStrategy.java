@@ -7,10 +7,12 @@ import java.util.List;
 
 public class RelatorioProdutoSimplesStrategy implements RelatorioProdutoStrategy {
     @Override
-    public void imprimirRelatorio(List<Produto> produtos, List<Ingrediente> ingredientes, List<Insumo> insumos) {
-        System.out.println("\n===== RELATÓRIO SIMPLES DE PRODUTOS =====\n");
+    public Object gerarRelatorio(List<Produto> produtos, List<Ingrediente> ingredientes, List<Insumo> insumos) {
+        // Retorna apenas os nomes dos produtos
+        java.util.List<String> nomes = new java.util.ArrayList<>();
         for (Produto produto : produtos) {
-            System.out.println("Produto: " + produto.getNome());
+            nomes.add(produto.getNome());
         }
+        return nomes;
     }
 }

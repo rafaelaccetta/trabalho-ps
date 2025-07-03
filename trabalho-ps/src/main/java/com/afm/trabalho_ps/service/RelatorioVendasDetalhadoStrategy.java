@@ -4,17 +4,22 @@ import com.afm.trabalho_ps.dto.RelatorioVendasDTO;
 
 public class RelatorioVendasDetalhadoStrategy implements RelatorioVendasStrategy {
     @Override
-    public void imprimirRelatorio(RelatorioVendasDTO dto) {
-        System.out.println("\n===== RELATÓRIO DE VENDAS (DETALHADO) =====\n");
-        System.out.println("Total vendido: " + dto.totalVendido);
-        System.out.println("Total de itens vendidos: " + dto.totalItensVendidos);
-        System.out.println("Produto mais vendido: " + dto.produtoMaisVendido + " (" + dto.quantidadeMaisVendida + ")\n");
+    public String gerarRelatorio(RelatorioVendasDTO dto) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n===== RELATÓRIO DE VENDAS (DETALHADO) =====\n\n");
+        sb.append("Total vendido: ").append(dto.totalVendido).append("\n");
+        sb.append("Total de itens vendidos: ").append(dto.totalItensVendidos).append("\n");
+        sb.append("Produto mais vendido: ").append(dto.produtoMaisVendido).append(" (").append(dto.quantidadeMaisVendida).append(")\n\n");
         for (RelatorioVendasDTO.VendaResumo vendaResumo : dto.vendas) {
-            System.out.println("Venda #" + vendaResumo.id + " | Cliente: " + vendaResumo.cliente + " | Data: " + vendaResumo.data + " | Valor: " + vendaResumo.valorTotal);
+            sb.append("Venda #").append(vendaResumo.id)
+              .append(" | Cliente: ").append(vendaResumo.cliente)
+              .append(" | Data: ").append(vendaResumo.data)
+              .append(" | Valor: ").append(vendaResumo.valorTotal).append("\n");
             for (RelatorioVendasDTO.ItemResumo item : vendaResumo.itens) {
-                System.out.println("    - " + item.produto + ": " + item.quantidade);
+                sb.append("    - ").append(item.produto).append(": ").append(item.quantidade).append("\n");
             }
-            System.out.println();
+            sb.append("\n");
         }
+        return sb.toString();
     }
 }

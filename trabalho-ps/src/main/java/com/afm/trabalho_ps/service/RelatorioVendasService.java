@@ -59,8 +59,13 @@ public class RelatorioVendasService {
         this.strategy = strategy;
     }
 
-    public void imprimirRelatorio() {
+    public String gerarRelatorioFormatado() {
         RelatorioVendasDTO dto = gerarRelatorio();
-        strategy.imprimirRelatorio(dto);
+        return strategy.gerarRelatorio(dto);
+    }
+
+    // O método antigo pode ser removido futuramente
+    public void imprimirRelatorio() {
+        System.out.println(gerarRelatorioFormatado());
     }
 }

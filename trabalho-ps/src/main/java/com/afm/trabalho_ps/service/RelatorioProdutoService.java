@@ -26,10 +26,10 @@ public class RelatorioProdutoService {
         this.strategy = strategy;
     }
 
-    public void imprimirRelatorioProdutosEIngredientes() {
+    public Object gerarRelatorioProdutosEIngredientes() {
         List<Produto> produtos = produtoRepository.findAll();
         List<Ingrediente> ingredientes = ingredienteRepository.findAll();
         List<Insumo> insumos = insumoRepository.findAll();
-        strategy.imprimirRelatorio(produtos, ingredientes, insumos);
+        return strategy.gerarRelatorio(produtos, ingredientes, insumos);
     }
 }

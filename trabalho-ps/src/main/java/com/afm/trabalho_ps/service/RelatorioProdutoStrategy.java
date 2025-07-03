@@ -6,5 +6,5 @@ import com.afm.trabalho_ps.model.Insumo;
 import java.util.List;
 
 public interface RelatorioProdutoStrategy {
-    void imprimirRelatorio(List<Produto> produtos, List<Ingrediente> ingredientes, List<Insumo> insumos);
+    Object gerarRelatorio(List<Produto> produtos, List<Ingrediente> ingredientes, List<Insumo> insumos);
 }
