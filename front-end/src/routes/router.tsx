@@ -5,8 +5,10 @@ import Layout from "./Layout";
 import RelatorioPage from "../pages/RelatorioPage";
 import CadastroPage from "../pages/CadastroPage";
 import CadastroUsuarioPage from "../pages/CadastroUsuarioPage";
+import CadastroInsumoPage from "../pages/CadastroInsumoPage";
 import LoginPage from "../pages/LoginPage";
 import EncomendaPage from "../pages/EncomendaPage";
+import CadastroProdutoPage from "../pages/CadastroProdutoPage";
 
 const router = createBrowserRouter([
     {
@@ -21,7 +23,9 @@ const router = createBrowserRouter([
                 path: "cadastro",
                 element: <CadastroPage />,
                 children: [
-                    {path: "usuario", element: <CadastroUsuarioPage />}
+                    {path: "usuario", element: <CadastroUsuarioPage />},
+                    {path: "insumo", element: <CadastroInsumoPage />},
+                    {path: "produto", element: <CadastroProdutoPage />}
                 ]
             },
             {path: "login", element: <LoginPage />},

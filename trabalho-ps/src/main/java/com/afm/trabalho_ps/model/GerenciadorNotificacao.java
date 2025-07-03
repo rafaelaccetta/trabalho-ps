@@ -4,6 +4,4 @@ public interface GerenciadorNotificacao {
 
     public void notificaFaltaDeInsumo(Insumo insumo);
 
-    public void notificaRespostaEncomenda(Usuario cliente, Produto produto, int quantidade, boolean confirmado);
-
 }
