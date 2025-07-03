@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import RelatorioPage from "../pages/RelatorioPage";
 import CadastroPage from "../pages/CadastroPage";
 import CadastroUsuarioPage from "../pages/CadastroUsuarioPage";
+import CadastroInsumoPage from "../pages/CadastroInsumoPage";
 import LoginPage from "../pages/LoginPage";
 import EncomendaPage from "../pages/EncomendaPage";
 
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
                 path: "cadastro",
                 element: <CadastroPage />,
                 children: [
-                    {path: "usuario", element: <CadastroUsuarioPage />}
+                    {path: "usuario", element: <CadastroUsuarioPage />},
+                    {path: "insumo", element: <CadastroInsumoPage />}
                 ]
             },
             {path: "login", element: <LoginPage />},
