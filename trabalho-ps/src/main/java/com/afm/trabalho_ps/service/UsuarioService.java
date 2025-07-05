@@ -1,6 +1,8 @@
 //Responsável pela lógica de negócios relacionada aos usuários do sistema.
 package com.afm.trabalho_ps.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,16 @@ public class UsuarioService {
 
     public Iterable<Usuario> listarTodos() {
         return usuarioRepository.findAll();
+    }
+
+    public List<Usuario> listarAdmins() {
+        List<Usuario> admins = new ArrayList<>();
+        for (Usuario u : usuarioRepository.findAll()) {
+            if (u.getEmail() != null && u.getEmail().contains("@admin")) {
+                admins.add(u);
+            }
+        }
+        return admins;
     }
 
     // UPDATE (U)

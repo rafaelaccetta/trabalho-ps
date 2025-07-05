@@ -19,4 +19,9 @@ public class ProdutoController {
         Produto salvo = produtoService.salvar(produto);
         return ResponseEntity.ok(salvo);
     }
+
+    @GetMapping
+    public ResponseEntity<?> listarProdutos() {
+        return ResponseEntity.ok(produtoService.listarTodos());
+    }
 }

@@ -60,13 +60,22 @@ public class ProdutoService {
     }
 
     public TokenResponse encomendarProduto(Encomenda encomenda) throws Exception{
+        System.out.println("Recebido idProduto: " + encomenda.getIdProduto());
+        System.out.print("Ids de produtos no banco: ");
+        for (Produto p : produtoRepository.findAll()) {
+            System.out.print(p.getId() + " ");
+        }
+        System.out.println();
         Optional<Produto> produto = produtoRepository.findById(encomenda.getIdProduto());
         if (produto.isPresent()){
+            System.out.println("Produto encontrado: " + produto.get().getNome());
             boolean r = insumoService.verificaInsumos(produto.get(), encomenda.getQuantidade());
             if(r) {
+                System.out.println("Insumos suficientes para a encomenda.");
                 insumoService.retiraInsumosParaEncomenda(produto.get(), encomenda.getQuantidade());
                 return new TokenResponse(1);
             } else {
+                System.out.println("Insumos insuficientes para a encomenda.");
                 return new TokenResponse(0);
             }
         } else {
