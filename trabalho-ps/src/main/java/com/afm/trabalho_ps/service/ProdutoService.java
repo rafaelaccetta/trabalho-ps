@@ -1,5 +1,6 @@
 package com.afm.trabalho_ps.service;
 
+import com.afm.trabalho_ps.dto.CompraResponse;
 import com.afm.trabalho_ps.model.Encomenda;
 import com.afm.trabalho_ps.model.Produto;
 import com.afm.trabalho_ps.repository.ProdutoRepository;
@@ -59,23 +60,14 @@ public class ProdutoService {
         produtoRepository.deleteAll();
     }
 
-    public TokenResponse encomendarProduto(Encomenda encomenda) throws Exception{
-        System.out.println("Recebido idProduto: " + encomenda.getIdProduto());
-        System.out.print("Ids de produtos no banco: ");
-        for (Produto p : produtoRepository.findAll()) {
-            System.out.print(p.getId() + " ");
-        }
-        System.out.println();
+    public TokenResponse encomendarProduto(Encomenda encomenda) throws Exception {
         Optional<Produto> produto = produtoRepository.findById(encomenda.getIdProduto());
-        if (produto.isPresent()){
-            System.out.println("Produto encontrado: " + produto.get().getNome());
+        if (produto.isPresent()) {
             boolean r = insumoService.verificaInsumos(produto.get(), encomenda.getQuantidade());
-            if(r) {
-                System.out.println("Insumos suficientes para a encomenda.");
+            if (r) {
                 insumoService.retiraInsumosParaEncomenda(produto.get(), encomenda.getQuantidade());
                 return new TokenResponse(1);
             } else {
-                System.out.println("Insumos insuficientes para a encomenda.");
                 return new TokenResponse(0);
             }
         } else {
