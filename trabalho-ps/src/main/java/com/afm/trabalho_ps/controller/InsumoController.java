@@ -20,4 +20,9 @@ public class InsumoController {
         Insumo salvo = insumoService.salvar(insumo);
         return ResponseEntity.ok(salvo);
     }
+
+    @GetMapping
+    public ResponseEntity<?> listarInsumos() {
+        return ResponseEntity.ok(insumoService.listarTodos());
+    }
 }
