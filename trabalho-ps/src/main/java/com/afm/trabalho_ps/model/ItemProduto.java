@@ -10,12 +10,14 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import jakarta.persistence.Table;
 
 
 @Getter
 @Setter
 @Entity
 @NoArgsConstructor
+@Table(name = "item_produto")
 public class ItemProduto {
 
     @Id
