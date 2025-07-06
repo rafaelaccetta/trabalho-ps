@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import type Produto from "../interfaces/Produto";
 import useListarProdutos from "../hooks/useListarProdutos";
+import { useNavigate } from "react-router-dom";
 import "../pages/CompraPage.css";
 
 const CompraPage: React.FC = () => {
@@ -9,6 +10,7 @@ const CompraPage: React.FC = () => {
   const [erro, setErro] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [quantidade, setQuantidade] = useState<{ [id: string]: number }>({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     useListarProdutos()
@@ -16,6 +18,10 @@ const CompraPage: React.FC = () => {
       .catch(() => setErro("Erro ao buscar produtos"))
       .finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    navigate('/catalogo');
+  }, [navigate]);
 
   const comprar = async (produto: Produto) => {
     setMensagem("");
@@ -47,6 +53,11 @@ const CompraPage: React.FC = () => {
       {mensagem && (
         <div className={`login-msg ${mensagem.includes('sucesso') ? 'sucesso' : 'erro'}`}>{mensagem}</div>
       )}
+      <div style={{ maxWidth: 800, margin: "40px auto", textAlign: 'center' }}>
+        <p>Veja o catálogo e adicione produtos ao seu carrinho para finalizar a compra.</p>
+        <button style={{ background: '#1976d2', color: '#fff', border: 'none', borderRadius: 4, padding: '10px 24px', fontWeight: 600, fontSize: 16, cursor: 'pointer', margin: 16 }} onClick={() => navigate('/catalogo')}>Ir para Catálogo</button>
+        <button style={{ background: '#43a047', color: '#fff', border: 'none', borderRadius: 4, padding: '10px 24px', fontWeight: 600, fontSize: 16, cursor: 'pointer', margin: 16 }} onClick={() => navigate('/carrinho')}>Ver Carrinho</button>
+      </div>
       <div className="compra-cards-container">
         {produtos.map((produto) => (
           <div className="compra-card" key={produto.id}>

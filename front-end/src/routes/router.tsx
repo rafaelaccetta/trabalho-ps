@@ -10,6 +10,8 @@ import LoginPage from "../pages/LoginPage";
 import EncomendaPage from "../pages/EncomendaPage";
 import CadastroProdutoPage from "../pages/CadastroProdutoPage";
 import CompraPage from "../pages/CompraPage";
+import CarrinhoPage from "../pages/CarrinhoPage";
+import CatalogoPage from "../pages/CatalogoPage";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +33,9 @@ const router = createBrowserRouter([
             },
             {path: "login", element: <LoginPage />},
             {path: "encomenda", element: <EncomendaPage />},
-            {path: "compra", element: <CompraPage />}
+            {path: "compra", element: <CompraPage />},
+            {path: "carrinho", element: <CarrinhoPage />},
+            {path: "catalogo", element: <CatalogoPage />}
         ]
     }
 ])
