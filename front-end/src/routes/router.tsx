@@ -9,6 +9,7 @@ import CadastroInsumoPage from "../pages/CadastroInsumoPage";
 import LoginPage from "../pages/LoginPage";
 import EncomendaPage from "../pages/EncomendaPage";
 import CadastroProdutoPage from "../pages/CadastroProdutoPage";
+import CompraPage from "../pages/CompraPage";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,8 @@ const router = createBrowserRouter([
                 ]
             },
             {path: "login", element: <LoginPage />},
-            {path: "encomenda", element: <EncomendaPage />}
+            {path: "encomenda", element: <EncomendaPage />},
+            {path: "compra", element: <CompraPage />}
         ]
     }
 ])
