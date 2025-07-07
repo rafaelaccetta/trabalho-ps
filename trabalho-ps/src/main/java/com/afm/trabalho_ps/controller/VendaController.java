@@ -38,40 +38,55 @@ public class VendaController {
         if (request.idUsuario != null) {
             usuario = usuarioRepository.findById(request.idUsuario).orElse(null);
         }
+
         Venda venda = new Venda();
         venda.setEstado("PENDENTE");
         venda.setData(LocalDate.now());
         venda.setUsuario(usuario);
         venda.setTotal(0.0);
+
         List<ItemVenda> itens = new ArrayList<>();
         double total = 0.0;
-        for (ItemVendaRequest itemReq : request.itens) {
-            List<ItemProduto> itensProduto = itemProdutoRepository.findAllByProduto_Id(itemReq.idProduto);
-            int quantidadeDisponivel = itensProduto.stream().mapToInt(ItemProduto::getQuantidade).sum();
-            if (itensProduto.isEmpty() || quantidadeDisponivel < itemReq.quantidade) {
-                return ResponseEntity.badRequest().body("Quantidade indisponível para o produto " + itemReq.idProduto);
-            }
-            int quantidadeRestante = itemReq.quantidade;
-            for (ItemProduto itemProduto : itensProduto) {
-                if (quantidadeRestante <= 0) break;
-                int usar = Math.min(itemProduto.getQuantidade(), quantidadeRestante);
-                if (usar > 0) {
-                    ItemVenda itemVenda = new ItemVenda(itemProduto, usar, itemProduto.getPreco());
-                    itemVenda.setVenda(venda);
-                    itens.add(itemVenda);
-                    total += itemProduto.getPreco().doubleValue() * usar;
-                    itemProduto.setQuantidade(itemProduto.getQuantidade() - usar);
-                    itemProdutoRepository.save(itemProduto);
-                    quantidadeRestante -= usar;
+
+        try {
+            for (ItemVendaRequest itemReq : request.itens) {
+                List<ItemProduto> itensProduto = itemProdutoRepository.findAllByProduto_Id(itemReq.idProduto);
+                int quantidadeDisponivel = itensProduto.stream().mapToInt(ItemProduto::getQuantidade).sum();
+
+                if (itensProduto.isEmpty() || quantidadeDisponivel < itemReq.quantidade) {
+                    venda.setEstado("CANCELADA");
+                    vendaRepository.save(venda);
+                    return ResponseEntity.badRequest().body("Quantidade indisponível para o produto " + itemReq.idProduto);
+                }
+
+                int quantidadeRestante = itemReq.quantidade;
+                for (ItemProduto itemProduto : itensProduto) {
+                    if (quantidadeRestante <= 0) break;
+
+                    int usar = Math.min(itemProduto.getQuantidade(), quantidadeRestante);
+                    if (usar > 0) {
+                        ItemVenda itemVenda = new ItemVenda(itemProduto, usar, itemProduto.getPreco());
+                        itemVenda.setVenda(venda);
+                        itens.add(itemVenda);
+                        total += itemProduto.getPreco().doubleValue() * usar;
+                        itemProduto.setQuantidade(itemProduto.getQuantidade() - usar);
+                        itemProdutoRepository.save(itemProduto);
+                        quantidadeRestante -= usar;
+                    }
                 }
             }
+
+            venda.setTotal(total);
+            venda.setItens(itens);
+            venda.setEstado("FINALIZADA");
+            vendaRepository.save(venda);
+            return ResponseEntity.ok(venda);
+
+        } catch (Exception ex) {
+            venda.setEstado("CANCELADA");
+            vendaRepository.save(venda);
+            return ResponseEntity.status(500).body("Erro ao processar a venda: " + ex.getMessage());
         }
-        venda.setTotal(total);
-        venda.setItens(itens);
-        venda.setData(LocalDate.now());
-        venda.setEstado("FINALIZADA");
-        vendaRepository.save(venda);
-        return ResponseEntity.ok(venda);
     }
 
     public static class VendaRequest {
