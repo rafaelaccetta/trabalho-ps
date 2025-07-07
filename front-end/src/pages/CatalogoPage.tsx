@@ -15,7 +15,6 @@ const CatalogoPage = () => {
       .then(res => res.json())
       .then(async (produtos: Produto[]) => {
         setProdutos(produtos);
-        // Busca o estoque de cada produto
         const estoquesObj: { [id: number]: number } = {};
         for (const p of produtos) {
           if (p.id) {
@@ -39,7 +38,7 @@ const CatalogoPage = () => {
   return (
     <div
       style={{
-        padding: 16,
+        padding: '80px 16px 16px',
         boxSizing: 'border-box',
         width: '100%',
         minHeight: '100vh',
@@ -49,8 +48,9 @@ const CatalogoPage = () => {
     >
       <div
         style={{
-          position: 'sticky',
+          position: 'fixed',
           top: 0,
+          left: 0,
           width: '100%',
           backgroundColor: '#ffffff',
           padding: '12px 24px',
@@ -62,7 +62,7 @@ const CatalogoPage = () => {
         }}
       >
         <div style={{ fontWeight: 600, fontSize: 20, color: '#1976d2' }}>
-          Minha Loja
+          Atelier Flor de Macela
         </div>
         <div style={{ display: 'flex', gap: 20 }}>
           <button
@@ -148,8 +148,7 @@ const CatalogoPage = () => {
                 padding: '10px 18px',
                 fontWeight: 600,
                 fontSize: 16,
-                cursor:
-                  estoques[produto.id!] > 0 ? 'pointer' : 'not-allowed',
+                cursor: estoques[produto.id!] > 0 ? 'pointer' : 'not-allowed',
                 boxShadow:
                   estoques[produto.id!] > 0 ? '0 2px 8px #e3f0fc' : 'none',
                 transition: 'background 0.2s',
