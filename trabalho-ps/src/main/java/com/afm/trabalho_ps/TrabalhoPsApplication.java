@@ -16,9 +16,9 @@ import com.afm.trabalho_ps.repository.ItemProdutoRepository;
 import com.afm.trabalho_ps.model.Venda;
 import com.afm.trabalho_ps.repository.VendaRepository;
 import com.afm.trabalho_ps.model.ItemVenda;
-import com.afm.trabalho_ps.dto.RelatorioVendasDTO;
-import com.afm.trabalho_ps.dto.RelatorioProdutoDTO;
-import com.afm.trabalho_ps.service.RelatorioVendasService;
+// import com.afm.trabalho_ps.dto.RelatorioVendasDTO;
+// import com.afm.trabalho_ps.dto.RelatorioProdutoDTO;
+// import com.afm.trabalho_ps.service.RelatorioVendasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -42,8 +42,8 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 	@Autowired
 	private IngredienteRepository ingredienteRepository;
 
-	@Autowired
-	private RelatorioProdutoService relatorioProdutoService;
+	// @Autowired
+	// private RelatorioProdutoService relatorioProdutoService;
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
@@ -52,8 +52,8 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 	@Autowired
 	private VendaRepository vendaRepository;
 
-    @Autowired
-    private com.afm.trabalho_ps.service.RelatorioVendasService relatorioService;
+    // @Autowired
+    // private com.afm.trabalho_ps.service.RelatorioVendasService relatorioService;
 
     public static void main(String[] args) {
         SpringApplication.run(TrabalhoPsApplication.class, args);
@@ -64,7 +64,7 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 
 //		============================================================ CADASTRO DE PRODUTOS ================================================================
 
-        // Padronizar nomes SEM acento, til, cedilha ou qualquer caractere especial
+        // Padronizar nomes SEM acento, til, cedilha ou qualquer caractere especial para evitar erros
         produtoRepository.save(new Produto(
             "Hidratante Corporal",
             "Formula suave, nutritiva, com consistencia cremosa e rapida absorcao. Ideal para todos os tipos de pele. Contem ativos antioxidantes que auxiliam na hidratacao e regeneracao da pele. Principais ativos: Manteiga de Manga, Oleo Vegetal de Castanha do Para, Oleo Vegetal de Pracaxi, Cera de Coco, Glicerina Vegetal, Lactato de Sodio, Vitamina E, agua desmineralizada, Azeite de oliva, Oleos essenciais e Oleoresina Alecrim. "
@@ -118,640 +118,655 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 
         insumoRepository.save(new Insumo(
             "Oleo de Ricino",
-			10
+			50
         ));
 		insumoRepository.save(new Insumo(
 			"Manteiga de Cupuacu",
-			10
+			70
 		));
 		insumoRepository.save(new Insumo(
 			"BTMS",
-			10
+			50
 		));
 		insumoRepository.save(new Insumo(
 			"Cera de Carnauba",
-			10
+			60
 		));
 		insumoRepository.save(new Insumo(
 			"SCI",
-			10
+			80
 		));
 		insumoRepository.save(new Insumo(
 			"Spirulina em po",
-			10
+			100
 		));
 		insumoRepository.save(new Insumo(
 			"Betaina",
-			10
+			30
 		));
 		insumoRepository.save(new Insumo(
 			"Extrato de Capim Limao",
-			10
+			200
 		));
 		insumoRepository.save(new Insumo(
 			"Acido Lactico",
-			10
+			60
 		));
 		insumoRepository.save(new Insumo(
 			"Oleoresina de Alecrim",
-			10
+			86
 		));
 		insumoRepository.save(new Insumo(
 			"Nipaguarde",
-			10
+			78
 		));
 		insumoRepository.save(new Insumo(
 			"Oleo essencial de Capim Limao",
-			10
+			97
 		));
 		insumoRepository.save(new Insumo(
 			"Dolomita em po",
-			10
+			59
 		));
 		insumoRepository.save(new Insumo(
 			"Extrato de Camomila",
-			10
+			54
 		));
 		insumoRepository.save(new Insumo(
 			"Oleo essencial de Jasmin",
-			10
+			65
 		));
 		insumoRepository.save(new Insumo(
 			"Violeta Gensiana",
-			10
+			80
 		));
 		insumoRepository.save(new Insumo(
 			"Extrato de Hortela",
-			10
+			48
 		));
 		insumoRepository.save(new Insumo(
 			"Oleo essencial de Hortela-Pimenta",
-			10
+			45
 		));
 		insumoRepository.save(new Insumo(
 			"Carvao Ativado",
-			10
+			50
 		));
 		insumoRepository.save(new Insumo(
 			"Argila Preta",
-			10
+			67
 		));
 		insumoRepository.save(new Insumo(
 			"Manteiga de Ucuuba",
-			10
+			89
 		));
 		insumoRepository.save(new Insumo(
 			"Manteiga de Manga",
-			10
+			45
 		));
 		insumoRepository.save(new Insumo(
 			"Base glicerinada branca vegana",
-			10
+			40
 		));
 		insumoRepository.save(new Insumo(
 			"Extrato de Aveia",
-			10
+			130
 		));
 		insumoRepository.save(new Insumo(
 			"Castanha do Para em po",
-			10
+			87
 		));
 		insumoRepository.save(new Insumo(
 			"Arroz",
-			10
+			40
 		));
 		insumoRepository.save(new Insumo(
 			"Oleo Essencial de Lavanda",
-			10
+			80
 		));
 		insumoRepository.save(new Insumo(
 			"Lauril Vegetal",
-			10
+			90
 		));
 		insumoRepository.save(new Insumo(
 			"Oxido de Cromo Verde",
-			10
+			88
 		));
 		insumoRepository.save(new Insumo(
 			"Glicerina bidestilada",
-			10
+			100
 		));
 		insumoRepository.save(new Insumo(
 			"Extrato de Pimenta Rosa",
-			10
+			40
 		));
 		insumoRepository.save(new Insumo(
 			"Pimenta Rosa",
-			10
+			50
 		));
 		insumoRepository.save(new Insumo(
 			"Essencia de Camomila",
-			10
+			70
 		));
 		insumoRepository.save(new Insumo(
 			"Mica Laranja",
-			10
+			80
 		));
 		insumoRepository.save(new Insumo(
 			"Essencia de Maracuja",
-			10
+			78		
 		));
 		insumoRepository.save(new Insumo(
 			"Extrato de Aloe Vera",
-			10
+			70
 		));
 		insumoRepository.save(new Insumo(
 			"Semente de Maracuja",
-			10
+			60
 		));
 		insumoRepository.save(new Insumo(
 			"Estearato de glicerila GMS",
-			10
+			77
 		));
 		insumoRepository.save(new Insumo(
 			"Alcool Cetilico",
-			10
+			66
 		));
 		insumoRepository.save(new Insumo(
 			"Oleo de Amendoas",
-			10
+			70
 		));
 		insumoRepository.save(new Insumo(
 			"Agua Destilada",
-			10
+			80
 		));
 		insumoRepository.save(new Insumo(
 			"Vitamina E",
-			10
+			90
 		));
 		insumoRepository.save(new Insumo(
 			"Manteiga de Karite",
-			10
+			100
 		));
 		insumoRepository.save(new Insumo(
 			"Vermiculita",
-			10
+			60
 		));
 		insumoRepository.save(new Insumo(
 			"Alcool de Cereais",
-			10
+			50
 		));
 		insumoRepository.save(new Insumo(
 			"Essencia de algodao",
-			10
+			90
 		));
 		insumoRepository.save(new Insumo(
 			"Base de Aromatizador",
-			10
+			70
 		));
 		insumoRepository.save(new Insumo(
 			"Cera vegetal de coco",
-			10
+			77
 		));
 		insumoRepository.save(new Insumo(
 			"Pavilo de madeira",
-			10
+			150
 		));
 //		============================================================ CADASTRO DE INGREDIENTES ================================================================
-
-        // Padronizar buscas de ingredientes
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Oleo de Ricino"),
-            10,
-            "ml"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Manteiga de Cupuacu"),
-            10,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("BTMS"),
-            4,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Cera de Carnauba"),
-            10,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("SCI"),
-            100,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Spirulina em po"),
-            30,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Betaina"),
-            8,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Extrato de Capim Limao"),
-            4,
-            "ml"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Acido Lactico"),
-            2,
-            "ml"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Oleoresina de Alecrim"),
-            1,
-            "ml"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Nipaguarde"),
-            1,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Spirulina"),
-            insumoService.buscarIdPorNome("Alcool Cetilico"),
-            4,
-            "ml"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Oleo de Ricino"),
-            10,
-            "ml"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Manteiga de Manga"),
-            10,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("BTMS"),
-            4,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Cera de Carnauba"),
-            10,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("SCI"),
-            100,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Dolomita em po"),
-            30,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Betaina"),
-            8,
-            "mg"
-        ));
-        ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Extrato de Camomila"),
-            4,
-            "ml"
-        ));
+		// Shampoo de Spirulina
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Acido Lactico"),
-            2,
-            "ml"
-        ));
-		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Oleoresina de Alecrim"),
-            1,
-            "ml"
-        ));
-		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Nipaguarde"),
-            1,
-			"mg"
-        ));
-		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Oleo essencial de Jasmin"),
-            2,
-            "ml"
-        ));
-		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Violeta Gensiana"),
-            5,
-            "mg"
-        ));
-		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo de Dolomita"),
-            insumoService.buscarIdPorNome("Alcool Cetilico"),
-            4,
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("Oleo de Ricino"),
+			10,
 			"ml"
-        ));
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Oleo de Ricino"),
-            10,
-            "ml"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("Manteiga de Cupuacu"),
+			8,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Manteiga de Ucuuba"),
-            10,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("BTMS"),
+			5,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("BTMS"),
-            4,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("Cera de Carnauba"),
+			2,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Cera de Carnauba"),
-            10,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("SCI"),
+			15,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("SCI"),
-            100,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("Spirulina em po"),
+			1,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Carvao Ativado"),
-            20,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("Betaina"),
+			20,
+			"ml"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Argila Preta"),
-            20,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("Extrato de Capim Limao"),
+			5,
+			"ml"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Betaina"),
-            8,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("Acido Lactico"),
+			1,
+			"ml"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Extrato de Hortela"),
-            4,
-            "ml"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("Oleoresina de Alecrim"),
+			1,
+			"ml"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Acido Lactico"),
-            2,
-            "ml"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("Nipaguarde"),
+			1,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Oleoresina de Alecrim"),
-            1,
-            "ml"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Spirulina"),
+			insumoService.buscarIdPorNome("Alcool Cetilico"),
+			1,
+			"g"
+		));
+
+		// Shampoo de Dolomita
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Nipaguarde"),
-            1,
-			"mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Oleo de Ricino"),
+			10,
+			"ml"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Shampoo Detox"),
-            insumoService.buscarIdPorNome("Oleo Essencial de Hortela-Pimenta"),
-            2,
-            "ml"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Manteiga de Manga"),
+			6,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
-            insumoService.buscarIdPorNome("Base glicerinada branca vegana"),
-            600,
-			"mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("BTMS"),
+			5,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
-            insumoService.buscarIdPorNome("Extrato de Aveia"),
-            15,
-			"mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Cera de Carnauba"),
+			2,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
-            insumoService.buscarIdPorNome("Castanha do Para em po"),
-            10,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("SCI"),
+			15,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
-            insumoService.buscarIdPorNome("Arroz"),
-            150,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Dolomita em po"),
+			2,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
-            insumoService.buscarIdPorNome("Oleo Essencial de Lavanda"),
-            5,
-            "ml"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Betaina"),
+			20,
+			"ml"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
-            insumoService.buscarIdPorNome("Base glicerinada branca vegana"),
-            600,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Extrato de Camomila"),
+			3,
+			"ml"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
-            insumoService.buscarIdPorNome("Extrato de Capim Limao"),
-            15,
-            "ml"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Acido Lactico"),
+			1,
+			"ml"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
-            insumoService.buscarIdPorNome("Lauril Vegetal"),
-            10,
-            "ml"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Oleoresina de Alecrim"),
+			1,
+			"ml"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
-            insumoService.buscarIdPorNome("Oleo Essencial de Capim Limao"),
-            5,
-            "ml"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Nipaguarde"),
+			1,
+			"g"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
-            insumoService.buscarIdPorNome("Oxido de Cromo Verde"),
-            1,
-            "mg"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Oleo essencial de Jasmin"),
+			1,
+			"ml"
+		));
 		ingredienteRepository.save(new Ingrediente(
-            produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
-            insumoService.buscarIdPorNome("Glicerina bidestilada"),
-            5,
-            "ml"
-        ));
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Violeta Gensiana"),
+			1,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo de Dolomita"),
+			insumoService.buscarIdPorNome("Alcool Cetilico"),
+			1,
+			"g"
+		));
+
+		// Shampoo Detox
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Oleo de Ricino"),
+			10,
+			"ml"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Manteiga de Ucuuba"),
+			5,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("BTMS"),
+			5,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Cera de Carnauba"),
+			2,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("SCI"),
+			15,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Carvao Ativado"),
+			1,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Argila Preta"),
+			1,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Betaina"),
+			20,
+			"ml"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Extrato de Hortela"),
+			3,
+			"ml"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Acido Lactico"),
+			1,
+			"ml"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Oleoresina de Alecrim"),
+			1,
+			"ml"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Nipaguarde"),
+			1,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Shampoo Detox"),
+			insumoService.buscarIdPorNome("Oleo Essencial de Hortela-Pimenta"),
+			1,
+			"ml"
+		));
+
+		// Sabonete de Arroz e Lavanda
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
+			insumoService.buscarIdPorNome("Base glicerinada branca vegana"),
+			80,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
+			insumoService.buscarIdPorNome("Extrato de Aveia"),
+			2,
+			"ml"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
+			insumoService.buscarIdPorNome("Castanha do Para em po"),
+			1,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
+			insumoService.buscarIdPorNome("Arroz"),
+			2,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Arroz e Lavanda"),
+			insumoService.buscarIdPorNome("Oleo Essencial de Lavanda"),
+			1,
+			"ml"
+		));
+
+		// Sabonete de Capim Limao
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
+			insumoService.buscarIdPorNome("Base glicerinada branca vegana"),
+			80,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
+			insumoService.buscarIdPorNome("Extrato de Capim Limao"),
+			2,
+			"ml"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
+			insumoService.buscarIdPorNome("Lauril Vegetal"),
+			2,
+			"ml"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
+			insumoService.buscarIdPorNome("Oleo Essencial de Capim Limao"),
+			1,
+			"ml"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
+			insumoService.buscarIdPorNome("Oxido de Cromo Verde"),
+			1,
+			"g"
+		));
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Capim Limao"),
+			insumoService.buscarIdPorNome("Glicerina bidestilada"),
+			2,
+			"ml"
+		));
+
+		// Sabonete de Pimenta Rosa
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Pimenta Rosa"),
 			insumoService.buscarIdPorNome("Base glicerinada branca vegana"),
-			600,
-			"mg"
+			80,
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Pimenta Rosa"),
 			insumoService.buscarIdPorNome("Extrato de Pimenta Rosa"),
-			15,
+			2,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Pimenta Rosa"),
 			insumoService.buscarIdPorNome("Lauril Vegetal"),
-			10,
+			2,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Pimenta Rosa"),
 			insumoService.buscarIdPorNome("Oleo Essencial de Hortela-Pimenta"),
-			5,
+			1,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Pimenta Rosa"),
 			insumoService.buscarIdPorNome("Pimenta Rosa"),
-			20,
-			"mg"
+			1,
+			"g"
 		));
+
+		// Sabonete de Maracuja
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Maracuja"),
 			insumoService.buscarIdPorNome("Base glicerinada branca vegana"),
-			600,
-			"mg"
+			80,
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Maracuja"),
 			insumoService.buscarIdPorNome("Extrato de Aloe Vera"),
-			15,
+			2,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Maracuja"),
 			insumoService.buscarIdPorNome("Lauril Vegetal"),
-			10,
+			2,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Maracuja"),
 			insumoService.buscarIdPorNome("glicerina bidestilada"),
-			5,
+			2,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Maracuja"),
 			insumoService.buscarIdPorNome("Mica Laranja"),
 			1,
-			"mg"
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Maracuja"),
 			insumoService.buscarIdPorNome("Essencia de Maracuja"),
-			15,
+			1,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Maracuja"),
 			insumoService.buscarIdPorNome("Semente de Maracuja"),
-			2,
-			"mg"
-		));
-		ingredienteRepository.save(new Ingrediente(
-			produtoService.buscarIdPorNome("Sabonete de Camomila"),
-			insumoService.buscarIdPorNome("Base glicerinada branca vegana"),
-			600,
-			"mg"
+			1,
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Maracuja"),
 			insumoService.buscarIdPorNome("Extrato de Camomila"),
-			15,
+			2,
 			"ml"
+		));
+
+		// Sabonete de Camomila
+		ingredienteRepository.save(new Ingrediente(
+			produtoService.buscarIdPorNome("Sabonete de Camomila"),
+			insumoService.buscarIdPorNome("Base glicerinada branca vegana"),
+			80,
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Camomila"),
 			insumoService.buscarIdPorNome("Lauril Vegetal"),
-			10,
+			2,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sabonete de Camomila"),
 			insumoService.buscarIdPorNome("Essencia de Camomila"),
-			15,
+			1,
 			"ml"
 		));
+
+		// Hidratante Corporal
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
 			insumoService.buscarIdPorNome("Estearato de glicerila GMS"),
-			85,
-			"mg"
+			2,
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
 			insumoService.buscarIdPorNome("Alcool Cetilico"),
-			15,
-			"ml"
+			1,
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
 			insumoService.buscarIdPorNome("Oleo de Amendoas"),
-			65,
+			5,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
 			insumoService.buscarIdPorNome("Manteiga de Karite"),
-			63,
-			"mg"
+			2,
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
 			insumoService.buscarIdPorNome("Agua Destilada"),
-			750,
+			60,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
 			insumoService.buscarIdPorNome("Glicerina bidestilada"),
-			13,
+			2,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
 			insumoService.buscarIdPorNome("Nipaguarde"),
-			8,
-			"mg"
+			1,
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
@@ -763,60 +778,66 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
 			insumoService.buscarIdPorNome("Vitamina E"),
 			2,
-			"mg"
+			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Hidratante Corporal"),
 			insumoService.buscarIdPorNome("Oleo Essencial de Lavanda"),
-			10,
+			1,
 			"ml"
 		));
+
+		// Sache Perfumado
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sache Perfumado"),
 			insumoService.buscarIdPorNome("Vermiculita"),
-			250,
-			"mg"
+			10,
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sache Perfumado"),
 			insumoService.buscarIdPorNome("Essencia de algodao"),
-			25,
+			2,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Sache Perfumado"),
 			insumoService.buscarIdPorNome("Alcool de Cereais"),
-			25,
+			1,
 			"ml"
 		));
+
+		// Home Spray
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Home Spray"),
 			insumoService.buscarIdPorNome("Agua Destilada"),
-			180,
+			90,
 			"ml"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Home Spray"),
 			insumoService.buscarIdPorNome("Essencia de algodao"),
-			20,
+			10,
 			"ml"
 		));
+
+		// Vela Aromatica
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Vela Aromatica"),
 			insumoService.buscarIdPorNome("Cera vegetal de coco"),
-			150,
-			"mg"
+			80,
+			"g"
 		));
 		ingredienteRepository.save(new Ingrediente(
 			produtoService.buscarIdPorNome("Vela Aromatica"),
 			insumoService.buscarIdPorNome("Essencia de camomila"),
-			15,
+			8,
 			"ml"
 		));
 
 
 // ===================== DADOS MINIMOS PARA RELATORIO DE VENDAS =====================
-        // 1. Usuario
+        // Usuario
         Usuario usuario1 = new Usuario("Maria Silva", "maria@email.com", "Rua das Flores, 123", "1990-01-01", "senha123", "11999999999");
         Usuario usuario2 = new Usuario("Joao Souza", "joao@email.com", "Av. Brasil, 456", "1985-05-10", "senha456", "11988888888");
         Usuario usuario3 = new Usuario("Ana Lima", "ana@email.com", "Rua Verde, 789", "1992-09-20", "senha789", "11977777777");
@@ -826,38 +847,40 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 
         // Usuários do grupo para login de teste
         usuarioRepository.save(new Usuario("Miguel Jehle", "migueljehle@github.com", "Rua 1", "1995-01-01", "12345678", "11999990001"));
+		usuarioRepository.save(new Usuario("Luisa Muniz Stellet", "luisamstellet@gmail.com", "aaa", "2005-02-01", "123", "2140028922"));
         usuarioRepository.save(new Usuario("Vania", "vaniacourses@github.com", "Rua 2", "1990-02-02", "12345678", "11999990002"));
-        // ...adicione mais membros se necessário
 
         // Produtos já cadastrados
         Produto produto1 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Shampoo de Dolomita")).findFirst().orElseThrow();
         Produto produto2 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Sabonete de Maracuja")).findFirst().orElseThrow();
         Produto produto3 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Hidratante Corporal")).findFirst().orElseThrow();
-        // ItemProdutos - criar DOIS lotes para cada produto
-        ItemProduto itemProduto1a = itemProdutoRepository.save(new ItemProduto(produto1, 10, new java.math.BigDecimal("20.00")));
-        ItemProduto itemProduto1b = itemProdutoRepository.save(new ItemProduto(produto1, 7, new java.math.BigDecimal("21.00")));
-        ItemProduto itemProduto2a = itemProdutoRepository.save(new ItemProduto(produto2, 15, new java.math.BigDecimal("12.00")));
-        ItemProduto itemProduto2b = itemProdutoRepository.save(new ItemProduto(produto2, 8, new java.math.BigDecimal("13.00")));
-        ItemProduto itemProduto3a = itemProdutoRepository.save(new ItemProduto(produto3, 8, new java.math.BigDecimal("30.00")));
-        ItemProduto itemProduto3b = itemProdutoRepository.save(new ItemProduto(produto3, 5, new java.math.BigDecimal("29.00")));
+
+        // ItemProdutos 
+        ItemProduto itemProduto1a = itemProdutoRepository.save(new ItemProduto(produto1, 20, new java.math.BigDecimal("20.00")));
+        ItemProduto itemProduto2a = itemProdutoRepository.save(new ItemProduto(produto2, 30, new java.math.BigDecimal("12.00")));
+        ItemProduto itemProduto3a = itemProdutoRepository.save(new ItemProduto(produto3, 16, new java.math.BigDecimal("30.00")));
+
         // Venda 1
         Venda venda1 = new Venda("FINALIZADA", 40.0, java.time.LocalDate.now(), usuario1);
         ItemVenda itemVenda1 = new ItemVenda(itemProduto1a, 2, new java.math.BigDecimal("20.00"));
         itemVenda1.setVenda(venda1);
         venda1.setItens(java.util.Arrays.asList(itemVenda1));
         vendaRepository.save(venda1);
+
         // Venda 2
         Venda venda2 = new Venda("FINALIZADA", 24.0, java.time.LocalDate.now().minusDays(1), usuario2);
         ItemVenda itemVenda2 = new ItemVenda(itemProduto2a, 2, new java.math.BigDecimal("12.00"));
         itemVenda2.setVenda(venda2);
         venda2.setItens(java.util.Arrays.asList(itemVenda2));
         vendaRepository.save(venda2);
+
         // Venda 3
         Venda venda3 = new Venda("FINALIZADA", 60.0, java.time.LocalDate.now().minusDays(2), usuario3);
         ItemVenda itemVenda3 = new ItemVenda(itemProduto3a, 2, new java.math.BigDecimal("30.00"));
         itemVenda3.setVenda(venda3);
         venda3.setItens(java.util.Arrays.asList(itemVenda3));
         vendaRepository.save(venda3);
+
         // Venda 4 (com mais de um item)
         Venda venda4 = new Venda("FINALIZADA", 62.0, java.time.LocalDate.now().minusDays(3), usuario1);
         ItemVenda itemVenda4a = new ItemVenda(itemProduto1a, 1, new java.math.BigDecimal("20.00"));
@@ -869,19 +892,19 @@ public class TrabalhoPsApplication implements CommandLineRunner {
         venda4.setItens(java.util.Arrays.asList(itemVenda4a, itemVenda4b, itemVenda4c));
         vendaRepository.save(venda4);
 
-        // ===================== RELATORIO DE VENDAS =====================
-        RelatorioVendasDTO relatorio = relatorioService.gerarRelatorio();
-        System.out.println("\n===== RELATÓRIO DE VENDAS =====\n");
-        System.out.println("Total vendido: " + relatorio.totalVendido);
-        System.out.println("Total de itens vendidos: " + relatorio.totalItensVendidos);
-        System.out.println("Produto mais vendido: " + relatorio.produtoMaisVendido + " (" + relatorio.quantidadeMaisVendida + ")\n");
-        for (RelatorioVendasDTO.VendaResumo vendaResumo : relatorio.vendas) {
-            System.out.println("Venda #" + vendaResumo.id + " | Cliente: " + vendaResumo.cliente + " | Data: " + vendaResumo.data + " | Valor: " + vendaResumo.valorTotal);
-            for (RelatorioVendasDTO.ItemResumo item : vendaResumo.itens) {
-                System.out.println("    - " + item.produto + ": " + item.quantidade);
-            }
-            System.out.println();
-        }
+        // // ===================== RELATORIO DE VENDAS =====================
+        // RelatorioVendasDTO relatorio = relatorioService.gerarRelatorio();
+        // System.out.println("\n===== RELATÓRIO DE VENDAS =====\n");
+        // System.out.println("Total vendido: " + relatorio.totalVendido);
+        // System.out.println("Total de itens vendidos: " + relatorio.totalItensVendidos);
+        // System.out.println("Produto mais vendido: " + relatorio.produtoMaisVendido + " (" + relatorio.quantidadeMaisVendida + ")\n");
+        // for (RelatorioVendasDTO.VendaResumo vendaResumo : relatorio.vendas) {
+        //     System.out.println("Venda #" + vendaResumo.id + " | Cliente: " + vendaResumo.cliente + " | Data: " + vendaResumo.data + " | Valor: " + vendaResumo.valorTotal);
+        //     for (RelatorioVendasDTO.ItemResumo item : vendaResumo.itens) {
+        //         System.out.println("    - " + item.produto + ": " + item.quantidade);
+        //     }
+        //     System.out.println();
+        // }
 
         // Usuário admin para login diferenciado
         usuarioRepository.save(new Usuario(

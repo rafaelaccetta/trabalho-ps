@@ -4,7 +4,6 @@ import com.afm.trabalho_ps.model.ItemProduto;
 import com.afm.trabalho_ps.service.ItemProdutoService;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
