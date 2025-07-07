@@ -49,7 +49,7 @@ const CatalogoPage = () => {
     >
       <MenuSuperior />
 
-      <h2 style={{ textAlign: 'center', color: '#1976d2', marginTop: 32 }}>
+      <h2 style={{ textAlign: 'center', color: '#1976d2' }}>
         Catálogo de Produtos
       </h2>
 

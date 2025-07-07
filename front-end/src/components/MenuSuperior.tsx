@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 const MenuSuperior = () => {
   const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/login');
+  };
+  const estaNaEncomenda = location.pathname === '/encomenda';
 
   return (
     <div
@@ -38,7 +43,7 @@ const MenuSuperior = () => {
           Home
         </button>
         <button
-          onClick={() => navigate('/encomenda')}
+          onClick={() => navigate(estaNaEncomenda ? '/catalogo' : '/encomenda')}
           style={{
             background: 'none',
             border: 'none',
@@ -48,7 +53,7 @@ const MenuSuperior = () => {
             fontWeight: 'bold',
           }}
         >
-          Encomendar Produto
+          {estaNaEncomenda ? 'Catálogo de Produtos' : 'Encomendar Produto'}
         </button>
         <button
           onClick={() => navigate('/carrinho')}
@@ -62,6 +67,19 @@ const MenuSuperior = () => {
           }}
         >
           Ir para o Carrinho
+        </button>
+        <button
+          onClick={handleLogout}
+          style={{
+            background: 'none',
+            border: 'none',
+            fontSize: 16,
+            color: '#d32f2f',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+          }}
+        >
+          Sair
         </button>
       </div>
     </div>
