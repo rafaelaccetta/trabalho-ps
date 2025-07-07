@@ -37,34 +37,127 @@ const CatalogoPage = () => {
   };
 
   return (
-    <div style={{ maxWidth: 900, margin: '40px auto' }}>
-      <h2>Catálogo de Produtos</h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
+    <div
+      style={{
+        padding: 16,
+        boxSizing: 'border-box',
+        width: '100%',
+        minHeight: '100vh',
+        overflowY: 'auto',
+        overflowX: 'hidden',
+      }}
+    >
+      <div
+        style={{
+          position: 'sticky',
+          top: 0,
+          width: '100%',
+          backgroundColor: '#ffffff',
+          padding: '12px 24px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          zIndex: 1000,
+        }}
+      >
+        <div style={{ fontWeight: 600, fontSize: 20, color: '#1976d2' }}>
+          Minha Loja
+        </div>
+        <div style={{ display: 'flex', gap: 20 }}>
+          <button
+            onClick={() => navigate('/homeuser')}
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: 16,
+              color: '#1976d2',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+            }}
+          >
+            Home
+          </button>
+          <button
+            onClick={() => navigate('/encomenda')}
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: 16,
+              color: '#1976d2',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+            }}
+          >
+            Encomendar Produto
+          </button>
+        </div>
+      </div>
+
+      <h2 style={{ textAlign: 'center', color: '#1976d2', marginTop: 32 }}>
+        Catálogo de Produtos
+      </h2>
+
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: 24,
+          marginTop: 24,
+        }}
+      >
         {produtos.map(produto => (
-          <div key={produto.id} style={{ border: '1px solid #ccc', borderRadius: 12, padding: 20, width: 240, background: '#fafdff', boxShadow: '0 2px 8px #e3f0fc' }}>
+          <div
+            key={produto.id}
+            style={{
+              border: '1px solid #ccc',
+              borderRadius: 12,
+              padding: 20,
+              width: 240,
+              background: '#fafdff',
+              boxSizing: 'border-box',
+              boxShadow: '0 2px 8px #e3f0fc',
+            }}
+          >
             <h4 style={{ margin: '8px 0 4px 0', color: '#1976d2' }}>{produto.nome}</h4>
             <p style={{ minHeight: 48, color: '#444', fontSize: 15 }}>{produto.descricao}</p>
-            <div style={{ fontSize: 14, color: estoques[produto.id!] > 0 ? '#388e3c' : '#b71c1c', marginBottom: 8 }}>
-              {estoques[produto.id!] > 0 ? `Disponível: ${estoques[produto.id!]}` : 'Indisponível'}
+            <div
+              style={{
+                fontSize: 14,
+                color: estoques[produto.id!] > 0 ? '#388e3c' : '#b71c1c',
+                marginBottom: 8,
+              }}
+            >
+              {estoques[produto.id!] > 0
+                ? `Disponível: ${estoques[produto.id!]}`
+                : 'Indisponível'}
             </div>
             <button
               onClick={() => handleAdicionar(produto)}
               disabled={estoques[produto.id!] === 0}
               style={{
                 marginTop: 8,
-                background: estoques[produto.id!] > 0 ? 'linear-gradient(90deg,#1976d2 60%,#43a047 100%)' : '#ccc',
+                background:
+                  estoques[produto.id!] > 0
+                    ? 'linear-gradient(90deg,#1976d2 60%,#43a047 100%)'
+                    : '#ccc',
                 color: '#fff',
                 border: 'none',
                 borderRadius: 6,
                 padding: '10px 18px',
                 fontWeight: 600,
                 fontSize: 16,
-                cursor: estoques[produto.id!] > 0 ? 'pointer' : 'not-allowed',
-                boxShadow: estoques[produto.id!] > 0 ? '0 2px 8px #e3f0fc' : 'none',
+                cursor:
+                  estoques[produto.id!] > 0 ? 'pointer' : 'not-allowed',
+                boxShadow:
+                  estoques[produto.id!] > 0 ? '0 2px 8px #e3f0fc' : 'none',
                 transition: 'background 0.2s',
               }}
             >
-              {estoques[produto.id!] > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
+              {estoques[produto.id!] > 0
+                ? 'Adicionar ao Carrinho'
+                : 'Indisponível'}
             </button>
           </div>
         ))}
