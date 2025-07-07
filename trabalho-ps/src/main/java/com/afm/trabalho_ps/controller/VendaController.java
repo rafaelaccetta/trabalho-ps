@@ -2,9 +2,11 @@ package com.afm.trabalho_ps.controller;
 
 import com.afm.trabalho_ps.model.Venda;
 import com.afm.trabalho_ps.model.ItemVenda;
+import com.afm.trabalho_ps.dto.HistoricoVendaDTO;
 import com.afm.trabalho_ps.model.ItemProduto;
 import com.afm.trabalho_ps.repository.ItemProdutoRepository;
 import com.afm.trabalho_ps.repository.VendaRepository;
+import com.afm.trabalho_ps.service.VendaService;
 import com.afm.trabalho_ps.repository.UsuarioRepository;
 import com.afm.trabalho_ps.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,8 @@ public class VendaController {
     private ItemProdutoRepository itemProdutoRepository;
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private VendaService vendaService;
 
     @PostMapping
     public ResponseEntity<?> criarVenda(@RequestBody VendaRequest request) {
@@ -64,6 +68,8 @@ public class VendaController {
         }
         venda.setTotal(total);
         venda.setItens(itens);
+        venda.setData(LocalDate.now());
+        venda.setEstado("FINALIZADA");
         vendaRepository.save(venda);
         return ResponseEntity.ok(venda);
     }
@@ -76,4 +82,10 @@ public class VendaController {
         public Long idProduto;
         public int quantidade;
     }
+    
+    @GetMapping("/historico")
+    public List<HistoricoVendaDTO> getHistoricoPorUsuario(@RequestParam("id") Long id) {
+        return vendaService.listarHistoricoPorUsuario(id);
+    }
+
 }

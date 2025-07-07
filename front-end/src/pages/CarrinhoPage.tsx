@@ -2,27 +2,30 @@ import React from 'react';
 import { useCarrinho } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import MenuSuperior from '../components/MenuSuperior';
+import { useQueryClient } from '@tanstack/react-query';
 
 const CarrinhoPage = () => {
   const { itens, atualizarQuantidade, removerDoCarrinho, limparCarrinho } = useCarrinho();
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const finalizarCompra = async () => {
-    const idUsuario = localStorage.getItem('idUsuario');
+    const idUsuario = localStorage.getItem('id');
     const venda = {
       idUsuario: idUsuario ? Number(idUsuario) : undefined,
       itens: itens.map(item => ({
         idProduto: item.produto.id,
-        quantidade: item.quantidade
-      }))
+        quantidade: item.quantidade,
+      })),
     };
     const response = await fetch('http://localhost:8080/vendas', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(venda)
+      body: JSON.stringify(venda),
     });
     if (response.ok) {
       limparCarrinho();
+      queryClient.invalidateQueries({ queryKey: ['historico-vendas'] });
       alert('Compra finalizada com sucesso!');
       navigate('/homeuser');
     } else {

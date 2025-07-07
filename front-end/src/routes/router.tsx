@@ -14,6 +14,7 @@ import CadastroProdutoPage from "../pages/CadastroProdutoPage";
 import CompraPage from "../pages/CompraPage";
 import CarrinhoPage from "../pages/CarrinhoPage";
 import CatalogoPage from "../pages/CatalogoPage";
+import HistoricoComprasPage from "../pages/HistoricoComprasPage";
 
 const router = createBrowserRouter([
     {
@@ -39,7 +40,9 @@ const router = createBrowserRouter([
             {path: "encomenda", element: <EncomendaPage />},
             {path: "compra", element: <CompraPage />},
             {path: "carrinho", element: <CarrinhoPage />},
-            {path: "catalogo", element: <CatalogoPage />}
+            {path: "catalogo", element: <CatalogoPage />},
+            {path:"historico", element:<HistoricoComprasPage />}
+
         ]
     }
 ])

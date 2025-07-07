@@ -69,6 +69,19 @@ const MenuSuperior = () => {
           Ir para o Carrinho
         </button>
         <button
+            onClick={() => navigate('/historico')}
+            style={{
+                background: 'none',
+                border: 'none',
+                fontSize: 16,
+                color: '#1976d2',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+            }}
+            >
+            Histórico
+            </button>
+        <button
           onClick={handleLogout}
           style={{
             background: 'none',
