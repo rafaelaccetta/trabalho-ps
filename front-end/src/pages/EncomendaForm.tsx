@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import type Encomenda from '../interfaces/Encomenda'
 import type TokenResponse from '../interfaces/TokenResponse'
 import useEncomendarProduto from '../hooks/useEncomendarProduto'
+import useListarProdutos from '../hooks/useListarProdutos'
+import type Produto from '../interfaces/Produto'
 
 
 const cardStyle: React.CSSProperties = {
@@ -48,7 +50,6 @@ const buttonStyle: React.CSSProperties = {
 }
 
 type EncomendaForm = {
-    idCliente: number,
     idProduto: number,
     quantidade: number
 }
@@ -56,11 +57,36 @@ type EncomendaForm = {
 const EncomendaForm = () => {
     const { register, handleSubmit, reset } = useForm<EncomendaForm>()
     const [mensagem, setMensagem] = useState<string | null>(null)
+    const [produtos, setProdutos] = useState<Produto[]>([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        async function fetchProdutos() {
+            try {
+                const lista = await useListarProdutos()
+                setProdutos(lista)
+            } catch (e) {
+                setMensagem('Erro ao buscar produtos')
+            } finally {
+                setLoading(false)
+            }
+        }
+        fetchProdutos()
+    }, [])
+
+    function getUserIdFromStorage() {
+        return localStorage.getItem('id')
+    }
 
     const encomendarProduto = async (data: EncomendaForm) => {
         setMensagem(null)
+        const idCliente = getUserIdFromStorage()
+        if (!idCliente) {
+            setMensagem('Usuário não autenticado')
+            return
+        }
         const encomenda: Encomenda = {
-            idCliente: data.idCliente,
+            idCliente: Number(idCliente),
             idProduto: data.idProduto,
             quantidade: data.quantidade
         }
@@ -83,25 +109,22 @@ const EncomendaForm = () => {
 
     return (
         <div style={cardStyle}>
-            <h4 style={titleStyle}>Insira seus dados</h4>
+            <h4 style={titleStyle}>Encomendar Produto</h4>
             <form style={{ width: '100%' }} onSubmit={handleSubmit(encomendarProduto)}>
+                {loading ? (
+                    <div>Carregando produtos...</div>
+                ) : (
+                    <select style={inputStyle} {...register('idProduto', { valueAsNumber: true })} required>
+                        <option value="">Selecione um produto</option>
+                        {produtos.map((produto, idx) => (
+                            <option key={idx} value={produto.id}>{produto.nome}</option>
+                        ))}
+                    </select>
+                )}
                 <input
                     style={inputStyle}
                     type='number'
-                    {...register('idCliente')}
-                    placeholder="id do cliente"
-                    required
-                />
-                <input
-                    style={inputStyle}
-                    type='number'
-                    {...register('idProduto')}
-                    placeholder="id do produto"
-                    required
-                /><input
-                    style={inputStyle}
-                    type='number'
-                    {...register('quantidade')}
+                    {...register('quantidade', { valueAsNumber: true })}
                     placeholder="quantidade"
                     required
                 />

@@ -23,9 +23,10 @@ public class LoginController {
         String senha = loginData.get("senha");
         Optional<Usuario> usuario = usuarioService.buscarPorEmailESenha(email, senha);
         if (usuario.isPresent()) {
-            // Retorna um token fake junto com o nome e email
+            // Retorna um token fake junto com o nome, email e id
             Map<String, Object> response = Map.of(
                 "token", java.util.UUID.randomUUID().toString(),
+                "id", usuario.get().getId(),
                 "nome", usuario.get().getNome(),
                 "email", usuario.get().getEmail()
             );

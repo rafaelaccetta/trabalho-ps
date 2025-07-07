@@ -22,7 +22,7 @@ const HomePageUser = () => {
         <p className="home-desc">Bem-vindo! Aqui você pode encomendar produtos e realizar compras.</p>
         <nav className="home-nav">
           <Link to="/encomenda" className="home-link">Encomendar Produto</Link>
-          <Link to="/cadastro" className="home-link">Comprar Produto</Link>
+          <Link to="/compra" className="home-link">Comprar Produto</Link>
         </nav>
       </div>
     </div>

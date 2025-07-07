@@ -20,10 +20,10 @@ public class EncomendaController {
     private ProdutoService produtoService;
 
     @PostMapping
-    public TokenResponse encomendarProduto(@RequestBody Encomenda encomenda){
-        try{
+    public TokenResponse encomendarProduto(@RequestBody Encomenda encomenda) {
+        try {
             return produtoService.encomendarProduto(encomenda);
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             return new TokenResponse(2);
         }

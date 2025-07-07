@@ -833,33 +833,36 @@ public class TrabalhoPsApplication implements CommandLineRunner {
         Produto produto1 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Shampoo de Dolomita")).findFirst().orElseThrow();
         Produto produto2 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Sabonete de Maracuja")).findFirst().orElseThrow();
         Produto produto3 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Hidratante Corporal")).findFirst().orElseThrow();
-        // ItemProdutos
-        ItemProduto itemProduto1 = itemProdutoRepository.findAll().stream().filter(ip -> ip.getProduto().getId().equals(produto1.getId())).findFirst().orElseGet(() -> itemProdutoRepository.save(new ItemProduto(produto1, 10, new java.math.BigDecimal("20.00"))));
-        ItemProduto itemProduto2 = itemProdutoRepository.findAll().stream().filter(ip -> ip.getProduto().getId().equals(produto2.getId())).findFirst().orElseGet(() -> itemProdutoRepository.save(new ItemProduto(produto2, 15, new java.math.BigDecimal("12.00"))));
-        ItemProduto itemProduto3 = itemProdutoRepository.findAll().stream().filter(ip -> ip.getProduto().getId().equals(produto3.getId())).findFirst().orElseGet(() -> itemProdutoRepository.save(new ItemProduto(produto3, 8, new java.math.BigDecimal("30.00"))));
+        // ItemProdutos - criar DOIS lotes para cada produto
+        ItemProduto itemProduto1a = itemProdutoRepository.save(new ItemProduto(produto1, 10, new java.math.BigDecimal("20.00")));
+        ItemProduto itemProduto1b = itemProdutoRepository.save(new ItemProduto(produto1, 7, new java.math.BigDecimal("21.00")));
+        ItemProduto itemProduto2a = itemProdutoRepository.save(new ItemProduto(produto2, 15, new java.math.BigDecimal("12.00")));
+        ItemProduto itemProduto2b = itemProdutoRepository.save(new ItemProduto(produto2, 8, new java.math.BigDecimal("13.00")));
+        ItemProduto itemProduto3a = itemProdutoRepository.save(new ItemProduto(produto3, 8, new java.math.BigDecimal("30.00")));
+        ItemProduto itemProduto3b = itemProdutoRepository.save(new ItemProduto(produto3, 5, new java.math.BigDecimal("29.00")));
         // Venda 1
         Venda venda1 = new Venda("FINALIZADA", 40.0, java.time.LocalDate.now(), usuario1);
-        ItemVenda itemVenda1 = new ItemVenda(itemProduto1, 2, new java.math.BigDecimal("20.00"));
+        ItemVenda itemVenda1 = new ItemVenda(itemProduto1a, 2, new java.math.BigDecimal("20.00"));
         itemVenda1.setVenda(venda1);
         venda1.setItens(java.util.Arrays.asList(itemVenda1));
         vendaRepository.save(venda1);
         // Venda 2
         Venda venda2 = new Venda("FINALIZADA", 24.0, java.time.LocalDate.now().minusDays(1), usuario2);
-        ItemVenda itemVenda2 = new ItemVenda(itemProduto2, 2, new java.math.BigDecimal("12.00"));
+        ItemVenda itemVenda2 = new ItemVenda(itemProduto2a, 2, new java.math.BigDecimal("12.00"));
         itemVenda2.setVenda(venda2);
         venda2.setItens(java.util.Arrays.asList(itemVenda2));
         vendaRepository.save(venda2);
         // Venda 3
         Venda venda3 = new Venda("FINALIZADA", 60.0, java.time.LocalDate.now().minusDays(2), usuario3);
-        ItemVenda itemVenda3 = new ItemVenda(itemProduto3, 2, new java.math.BigDecimal("30.00"));
+        ItemVenda itemVenda3 = new ItemVenda(itemProduto3a, 2, new java.math.BigDecimal("30.00"));
         itemVenda3.setVenda(venda3);
         venda3.setItens(java.util.Arrays.asList(itemVenda3));
         vendaRepository.save(venda3);
         // Venda 4 (com mais de um item)
         Venda venda4 = new Venda("FINALIZADA", 62.0, java.time.LocalDate.now().minusDays(3), usuario1);
-        ItemVenda itemVenda4a = new ItemVenda(itemProduto1, 1, new java.math.BigDecimal("20.00"));
-        ItemVenda itemVenda4b = new ItemVenda(itemProduto2, 1, new java.math.BigDecimal("12.00"));
-        ItemVenda itemVenda4c = new ItemVenda(itemProduto3, 1, new java.math.BigDecimal("30.00"));
+        ItemVenda itemVenda4a = new ItemVenda(itemProduto1a, 1, new java.math.BigDecimal("20.00"));
+        ItemVenda itemVenda4b = new ItemVenda(itemProduto2a, 1, new java.math.BigDecimal("12.00"));
+        ItemVenda itemVenda4c = new ItemVenda(itemProduto3a, 1, new java.math.BigDecimal("30.00"));
         itemVenda4a.setVenda(venda4);
         itemVenda4b.setVenda(venda4);
         itemVenda4c.setVenda(venda4);

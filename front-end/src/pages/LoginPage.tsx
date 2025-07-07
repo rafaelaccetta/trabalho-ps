@@ -25,6 +25,7 @@ const LoginPage = () => {
                 const result = await response.json()
                 localStorage.setItem('token', result.token)
                 localStorage.setItem('email', result.email)
+                localStorage.setItem('id', result.id) // Salva o id do usuário
                 setMensagem('Login realizado com sucesso!')
                 setTimeout(() => {
                   if (result.email === 'admin@admin.com') {
