@@ -16,9 +16,9 @@ import com.afm.trabalho_ps.repository.ItemProdutoRepository;
 import com.afm.trabalho_ps.model.Venda;
 import com.afm.trabalho_ps.repository.VendaRepository;
 import com.afm.trabalho_ps.model.ItemVenda;
-// import com.afm.trabalho_ps.dto.RelatorioVendasDTO;
-// import com.afm.trabalho_ps.dto.RelatorioProdutoDTO;
-// import com.afm.trabalho_ps.service.RelatorioVendasService;
+import com.afm.trabalho_ps.dto.RelatorioVendasDTO;
+import com.afm.trabalho_ps.dto.RelatorioProdutoDTO;
+import com.afm.trabalho_ps.service.RelatorioVendasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,31 +29,24 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 
     @Autowired
     private ProdutoRepository produtoRepository;
-
 	@Autowired
 	private ProdutoService produtoService;
-
 	@Autowired
 	private InsumoRepository insumoRepository;
-
 	@Autowired
 	private InsumoService insumoService;
-
 	@Autowired
 	private IngredienteRepository ingredienteRepository;
-
-	// @Autowired
-	// private RelatorioProdutoService relatorioProdutoService;
-
+	@Autowired
+	private RelatorioProdutoService relatorioProdutoService;
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	@Autowired
 	private ItemProdutoRepository itemProdutoRepository;
 	@Autowired
 	private VendaRepository vendaRepository;
-
-    // @Autowired
-    // private com.afm.trabalho_ps.service.RelatorioVendasService relatorioService;
+    @Autowired
+    private com.afm.trabalho_ps.service.RelatorioVendasService relatorioService;
 
     public static void main(String[] args) {
         SpringApplication.run(TrabalhoPsApplication.class, args);
@@ -901,19 +894,19 @@ public class TrabalhoPsApplication implements CommandLineRunner {
         venda4.setItens(java.util.Arrays.asList(itemVenda4a, itemVenda4b, itemVenda4c));
         vendaRepository.save(venda4);
 
-        // // ===================== RELATORIO DE VENDAS =====================
-        // RelatorioVendasDTO relatorio = relatorioService.gerarRelatorio();
-        // System.out.println("\n===== RELATÓRIO DE VENDAS =====\n");
-        // System.out.println("Total vendido: " + relatorio.totalVendido);
-        // System.out.println("Total de itens vendidos: " + relatorio.totalItensVendidos);
-        // System.out.println("Produto mais vendido: " + relatorio.produtoMaisVendido + " (" + relatorio.quantidadeMaisVendida + ")\n");
-        // for (RelatorioVendasDTO.VendaResumo vendaResumo : relatorio.vendas) {
-        //     System.out.println("Venda #" + vendaResumo.id + " | Cliente: " + vendaResumo.cliente + " | Data: " + vendaResumo.data + " | Valor: " + vendaResumo.valorTotal);
-        //     for (RelatorioVendasDTO.ItemResumo item : vendaResumo.itens) {
-        //         System.out.println("    - " + item.produto + ": " + item.quantidade);
-        //     }
-        //     System.out.println();
-        // }
+        // ===================== RELATORIO DE VENDAS =====================
+        RelatorioVendasDTO relatorio = relatorioService.gerarRelatorio();
+        System.out.println("\n===== RELATÓRIO DE VENDAS =====\n");
+        System.out.println("Total vendido: " + relatorio.totalVendido);
+        System.out.println("Total de itens vendidos: " + relatorio.totalItensVendidos);
+        System.out.println("Produto mais vendido: " + relatorio.produtoMaisVendido + " (" + relatorio.quantidadeMaisVendida + ")\n");
+        for (RelatorioVendasDTO.VendaResumo vendaResumo : relatorio.vendas) {
+            System.out.println("Venda #" + vendaResumo.id + " | Cliente: " + vendaResumo.cliente + " | Data: " + vendaResumo.data + " | Valor: " + vendaResumo.valorTotal);
+            for (RelatorioVendasDTO.ItemResumo item : vendaResumo.itens) {
+                System.out.println("    - " + item.produto + ": " + item.quantidade);
+            }
+            System.out.println();
+        }
 
         // Usuário admin para login diferenciado
         usuarioRepository.save(new Usuario(
