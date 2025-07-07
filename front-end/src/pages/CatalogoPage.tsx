@@ -107,7 +107,15 @@ const CatalogoPage = () => {
           marginTop: 24,
         }}
       >
-        {produtos.map(produto => (
+        {[...produtos]
+        .sort((a, b) => {
+          const estoqueA = estoques[a.id!] || 0;
+          const estoqueB = estoques[b.id!] || 0;
+          const disponivelA = estoqueA > 0 ? 1 : 0;
+          const disponivelB = estoqueB > 0 ? 1 : 0;
+          return disponivelB - disponivelA;
+        })
+        .map(produto => (
           <div
             key={produto.id}
             style={{

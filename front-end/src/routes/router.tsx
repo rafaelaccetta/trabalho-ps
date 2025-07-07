@@ -3,6 +3,8 @@ import HomePage from "../pages/HomePage";
 import HomePageUser from "../pages/HomePageUser";
 import Layout from "./Layout";
 import RelatorioPage from "../pages/RelatorioPage";
+import RelatorioVendasPage from "../pages/RelatorioVendasPage";
+import RelatoriosPage from "../pages/RelatoriosPage";
 import CadastroPage from "../pages/CadastroPage";
 import CadastroUsuarioPage from "../pages/CadastroUsuarioPage";
 import CadastroInsumoPage from "../pages/CadastroInsumoPage";
@@ -21,7 +23,9 @@ const router = createBrowserRouter([
             {path: "", element: <LoginPage />},
             {path: "homeuser", element: <HomePageUser />},
             {path: "home", element: <HomePage />},
-            {path: "relatorio", element: <RelatorioPage />},
+            { path: "relatorio", element: <RelatoriosPage /> },
+            { path: "relatorios/produtos", element: <RelatorioPage /> },
+            { path: "relatorios/vendas", element: <RelatorioVendasPage /> },
             {
                 path: "cadastro",
                 element: <CadastroPage />,
