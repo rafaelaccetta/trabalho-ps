@@ -1,4 +1,3 @@
-import React from 'react'
 import { useRelatorioProduto } from '../hooks/useRelatorioProduto'
 import type { RelatorioProdutoDTO } from '../interfaces/RelatorioProdutoDTO'
 import './RelatorioPage.css'
