@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import HomePageUser from "../pages/HomePageUser";
 import Layout from "./Layout";
-import RelatorioPage from "../pages/RelatorioPage";
+import RelatorioProdutosPage from "../pages/RelatorioProdutosPage";
 import RelatorioVendasPage from "../pages/RelatorioVendasPage";
 import RelatoriosPage from "../pages/RelatoriosPage";
 import CadastroPage from "../pages/CadastroPage";
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             {path: "homeuser", element: <HomePageUser />},
             {path: "home", element: <HomePage />},
             { path: "relatorio", element: <RelatoriosPage /> },
-            { path: "relatorios/produtos", element: <RelatorioPage /> },
+            { path: "relatorios/produtos", element: <RelatorioProdutosPage /> },
             { path: "relatorios/vendas", element: <RelatorioVendasPage /> },
             {
                 path: "cadastro",
