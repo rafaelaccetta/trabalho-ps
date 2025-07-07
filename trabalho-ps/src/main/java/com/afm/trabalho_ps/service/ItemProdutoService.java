@@ -23,6 +23,10 @@ public class ItemProdutoService {
     public Optional<ItemProduto> buscarPorId(Long id) {
         return itemProdutoRepository.findById(id);
     }
+    
+    public List<ItemProduto> buscarPorProdutoId(Long produtoId) {
+        return itemProdutoRepository.findAllByProduto_Id(produtoId);
+    }
 
     // CRUD: READ
     public List<ItemProduto> listarTodos() {
