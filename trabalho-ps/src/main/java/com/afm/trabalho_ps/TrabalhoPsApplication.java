@@ -116,202 +116,202 @@ public class TrabalhoPsApplication implements CommandLineRunner {
 
 //		============================================================ CADASTRO DE INSUMOS ================================================================
 
-        insumoRepository.save(new Insumo(
-            "Oleo de Ricino",
-			50
-        ));
 		insumoRepository.save(new Insumo(
-			"Manteiga de Cupuacu",
-			70
+			"Oleo de Ricino",
+				150
 		));
-		insumoRepository.save(new Insumo(
-			"BTMS",
-			50
-		));
-		insumoRepository.save(new Insumo(
-			"Cera de Carnauba",
-			60
-		));
-		insumoRepository.save(new Insumo(
-			"SCI",
-			80
-		));
-		insumoRepository.save(new Insumo(
-			"Spirulina em po",
-			100
-		));
-		insumoRepository.save(new Insumo(
-			"Betaina",
-			30
-		));
-		insumoRepository.save(new Insumo(
-			"Extrato de Capim Limao",
-			200
-		));
-		insumoRepository.save(new Insumo(
-			"Acido Lactico",
-			60
-		));
-		insumoRepository.save(new Insumo(
-			"Oleoresina de Alecrim",
-			86
-		));
-		insumoRepository.save(new Insumo(
-			"Nipaguarde",
-			78
-		));
-		insumoRepository.save(new Insumo(
-			"Oleo essencial de Capim Limao",
-			97
-		));
-		insumoRepository.save(new Insumo(
-			"Dolomita em po",
-			59
-		));
-		insumoRepository.save(new Insumo(
-			"Extrato de Camomila",
-			54
-		));
-		insumoRepository.save(new Insumo(
-			"Oleo essencial de Jasmin",
-			65
-		));
-		insumoRepository.save(new Insumo(
-			"Violeta Gensiana",
-			80
-		));
-		insumoRepository.save(new Insumo(
-			"Extrato de Hortela",
-			48
-		));
-		insumoRepository.save(new Insumo(
-			"Oleo essencial de Hortela-Pimenta",
-			45
-		));
-		insumoRepository.save(new Insumo(
-			"Carvao Ativado",
-			50
-		));
-		insumoRepository.save(new Insumo(
-			"Argila Preta",
-			67
-		));
-		insumoRepository.save(new Insumo(
-			"Manteiga de Ucuuba",
-			89
-		));
-		insumoRepository.save(new Insumo(
-			"Manteiga de Manga",
-			45
-		));
-		insumoRepository.save(new Insumo(
-			"Base glicerinada branca vegana",
-			40
-		));
-		insumoRepository.save(new Insumo(
-			"Extrato de Aveia",
-			130
-		));
-		insumoRepository.save(new Insumo(
-			"Castanha do Para em po",
-			87
-		));
-		insumoRepository.save(new Insumo(
-			"Arroz",
-			40
-		));
-		insumoRepository.save(new Insumo(
-			"Oleo Essencial de Lavanda",
-			80
-		));
-		insumoRepository.save(new Insumo(
-			"Lauril Vegetal",
-			90
-		));
-		insumoRepository.save(new Insumo(
-			"Oxido de Cromo Verde",
-			88
-		));
-		insumoRepository.save(new Insumo(
-			"Glicerina bidestilada",
-			100
-		));
-		insumoRepository.save(new Insumo(
-			"Extrato de Pimenta Rosa",
-			40
-		));
-		insumoRepository.save(new Insumo(
-			"Pimenta Rosa",
-			50
-		));
-		insumoRepository.save(new Insumo(
-			"Essencia de Camomila",
-			70
-		));
-		insumoRepository.save(new Insumo(
-			"Mica Laranja",
-			80
-		));
-		insumoRepository.save(new Insumo(
-			"Essencia de Maracuja",
-			78		
-		));
-		insumoRepository.save(new Insumo(
-			"Extrato de Aloe Vera",
-			70
-		));
-		insumoRepository.save(new Insumo(
-			"Semente de Maracuja",
-			60
-		));
-		insumoRepository.save(new Insumo(
-			"Estearato de glicerila GMS",
-			77
-		));
-		insumoRepository.save(new Insumo(
-			"Alcool Cetilico",
-			66
-		));
-		insumoRepository.save(new Insumo(
-			"Oleo de Amendoas",
-			70
-		));
-		insumoRepository.save(new Insumo(
-			"Agua Destilada",
-			80
-		));
-		insumoRepository.save(new Insumo(
-			"Vitamina E",
-			90
-		));
-		insumoRepository.save(new Insumo(
-			"Manteiga de Karite",
-			100
-		));
-		insumoRepository.save(new Insumo(
-			"Vermiculita",
-			60
-		));
-		insumoRepository.save(new Insumo(
-			"Alcool de Cereais",
-			50
-		));
-		insumoRepository.save(new Insumo(
-			"Essencia de algodao",
-			90
-		));
-		insumoRepository.save(new Insumo(
-			"Base de Aromatizador",
-			70
-		));
-		insumoRepository.save(new Insumo(
-			"Cera vegetal de coco",
-			77
-		));
-		insumoRepository.save(new Insumo(
-			"Pavilo de madeira",
-			150
-		));
+			insumoRepository.save(new Insumo(
+				"Manteiga de Cupuacu",
+				210
+			));
+			insumoRepository.save(new Insumo(
+				"BTMS",
+				150
+			));
+			insumoRepository.save(new Insumo(
+				"Cera de Carnauba",
+				180
+			));
+			insumoRepository.save(new Insumo(
+				"SCI",
+				240
+			));
+			insumoRepository.save(new Insumo(
+				"Spirulina em po",
+				300
+			));
+			insumoRepository.save(new Insumo(
+				"Betaina",
+				90
+			));
+			insumoRepository.save(new Insumo(
+				"Extrato de Capim Limao",
+				600
+			));
+			insumoRepository.save(new Insumo(
+				"Acido Lactico",
+				180
+			));
+			insumoRepository.save(new Insumo(
+				"Oleoresina de Alecrim",
+				258
+			));
+			insumoRepository.save(new Insumo(
+				"Nipaguarde",
+				234
+			));
+			insumoRepository.save(new Insumo(
+				"Oleo essencial de Capim Limao",
+				291
+			));
+			insumoRepository.save(new Insumo(
+				"Dolomita em po",
+				177
+			));
+			insumoRepository.save(new Insumo(
+				"Extrato de Camomila",
+				162
+			));
+			insumoRepository.save(new Insumo(
+				"Oleo essencial de Jasmin",
+				195
+			));
+			insumoRepository.save(new Insumo(
+				"Violeta Gensiana",
+				240
+			));
+			insumoRepository.save(new Insumo(
+				"Extrato de Hortela",
+				144
+			));
+			insumoRepository.save(new Insumo(
+				"Oleo essencial de Hortela-Pimenta",
+				135
+			));
+			insumoRepository.save(new Insumo(
+				"Carvao Ativado",
+				150
+			));
+			insumoRepository.save(new Insumo(
+				"Argila Preta",
+				201
+			));
+			insumoRepository.save(new Insumo(
+				"Manteiga de Ucuuba",
+				267
+			));
+			insumoRepository.save(new Insumo(
+				"Manteiga de Manga",
+				135
+			));
+			insumoRepository.save(new Insumo(
+				"Base glicerinada branca vegana",
+				120
+			));
+			insumoRepository.save(new Insumo(
+				"Extrato de Aveia",
+				390
+			));
+			insumoRepository.save(new Insumo(
+				"Castanha do Para em po",
+				261
+			));
+			insumoRepository.save(new Insumo(
+				"Arroz",
+				120
+			));
+			insumoRepository.save(new Insumo(
+				"Oleo Essencial de Lavanda",
+				240
+			));
+			insumoRepository.save(new Insumo(
+				"Lauril Vegetal",
+				270
+			));
+			insumoRepository.save(new Insumo(
+				"Oxido de Cromo Verde",
+				264
+			));
+			insumoRepository.save(new Insumo(
+				"Glicerina bidestilada",
+				300
+			));
+			insumoRepository.save(new Insumo(
+				"Extrato de Pimenta Rosa",
+				120
+			));
+			insumoRepository.save(new Insumo(
+				"Pimenta Rosa",
+				150
+			));
+			insumoRepository.save(new Insumo(
+				"Essencia de Camomila",
+				210
+			));
+			insumoRepository.save(new Insumo(
+				"Mica Laranja",
+				240
+			));
+			insumoRepository.save(new Insumo(
+				"Essencia de Maracuja",
+				234		
+			));
+			insumoRepository.save(new Insumo(
+				"Extrato de Aloe Vera",
+				210
+			));
+			insumoRepository.save(new Insumo(
+				"Semente de Maracuja",
+				180
+			));
+			insumoRepository.save(new Insumo(
+				"Estearato de glicerila GMS",
+				231
+			));
+			insumoRepository.save(new Insumo(
+				"Alcool Cetilico",
+				198
+			));
+			insumoRepository.save(new Insumo(
+				"Oleo de Amendoas",
+				210
+			));
+			insumoRepository.save(new Insumo(
+				"Agua Destilada",
+				240
+			));
+			insumoRepository.save(new Insumo(
+				"Vitamina E",
+				270
+			));
+			insumoRepository.save(new Insumo(
+				"Manteiga de Karite",
+				300
+			));
+			insumoRepository.save(new Insumo(
+				"Vermiculita",
+				180
+			));
+			insumoRepository.save(new Insumo(
+				"Alcool de Cereais",
+				150
+			));
+			insumoRepository.save(new Insumo(
+				"Essencia de algodao",
+				270
+			));
+			insumoRepository.save(new Insumo(
+				"Base de Aromatizador",
+				210
+			));
+			insumoRepository.save(new Insumo(
+				"Cera vegetal de coco",
+				231
+			));
+			insumoRepository.save(new Insumo(
+				"Pavilo de madeira",
+				450
+			));
 //		============================================================ CADASTRO DE INGREDIENTES ================================================================
 		// Shampoo de Spirulina
 		ingredienteRepository.save(new Ingrediente(
