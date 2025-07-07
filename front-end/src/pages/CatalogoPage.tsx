@@ -3,6 +3,7 @@ import type Produto from '../interfaces/Produto';
 import { useCarrinho } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import useEstoqueProduto from '../hooks/useEstoqueProduto';
+import MenuSuperior from '../components/MenuSuperior';
 
 const CatalogoPage = () => {
   const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -46,53 +47,7 @@ const CatalogoPage = () => {
         overflowX: 'hidden',
       }}
     >
-      <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          backgroundColor: '#ffffff',
-          padding: '12px 24px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          zIndex: 1000,
-        }}
-      >
-        <div style={{ fontWeight: 600, fontSize: 20, color: '#1976d2' }}>
-          Atelier Flor de Macela
-        </div>
-        <div style={{ display: 'flex', gap: 20 }}>
-          <button
-            onClick={() => navigate('/homeuser')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontSize: 16,
-              color: '#1976d2',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-            }}
-          >
-            Home
-          </button>
-          <button
-            onClick={() => navigate('/encomenda')}
-            style={{
-              background: 'none',
-              border: 'none',
-              fontSize: 16,
-              color: '#1976d2',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-            }}
-          >
-            Encomendar Produto
-          </button>
-        </div>
-      </div>
+      <MenuSuperior />
 
       <h2 style={{ textAlign: 'center', color: '#1976d2', marginTop: 32 }}>
         Catálogo de Produtos

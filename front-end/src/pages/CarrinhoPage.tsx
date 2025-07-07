@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCarrinho } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import MenuSuperior from '../components/MenuSuperior';
 
 const CarrinhoPage = () => {
   const { itens, atualizarQuantidade, removerDoCarrinho, limparCarrinho } = useCarrinho();
@@ -31,9 +32,30 @@ const CarrinhoPage = () => {
 
   return (
     <div style={{ maxWidth: 600, margin: '40px auto' }}>
-      <h2>Seu Carrinho</h2>
+      <MenuSuperior />
+      <h2 style={{ textAlign: 'center', color: '#1976d2', marginTop: 100 }}>
+        Seu Carrinho
+      </h2>
       {itens.length === 0 ? (
-        <p>O carrinho está vazio.</p>
+        <>
+          <p>O carrinho está vazio.</p>
+          <button
+            onClick={() => navigate('/catalogo')}
+            style={{
+              background: '#1976d2',
+              color: '#fff',
+              border: 'none',
+              borderRadius: 4,
+              padding: '10px 24px',
+              fontWeight: 600,
+              fontSize: 16,
+              cursor: 'pointer',
+              marginTop: 16,
+            }}
+          >
+            Escolher Produtos
+          </button>
+        </>
       ) : (
         <>
           <table style={{ width: '100%', marginBottom: 24 }}>
@@ -64,6 +86,22 @@ const CarrinhoPage = () => {
               ))}
             </tbody>
           </table>
+          <button
+            onClick={() => navigate('/catalogo')}
+            style={{
+              background: '#43a047',
+              color: '#fff',
+              border: 'none',
+              borderRadius: 4,
+              padding: '10px 24px',
+              fontWeight: 600,
+              fontSize: 16,
+              cursor: 'pointer',
+              marginRight: 12,
+            }}
+          >
+            Continuar Comprando
+          </button>
           <button onClick={finalizarCompra} style={{ background: '#1976d2', color: '#fff', border: 'none', borderRadius: 4, padding: '10px 24px', fontWeight: 600, fontSize: 16, cursor: 'pointer' }}>
             Finalizar Compra
           </button>
