@@ -155,9 +155,11 @@ const CadastroProdutoPage = () => {
                             required
                         >
                             <option value="">Selecione o insumo</option>
-                            {insumos.map((insumo, i) => (
-                                <option key={i} value={insumo.id}>{insumo.nome}</option>
-                            ))}
+                            {[...insumos]
+                                .sort((a, b) => a.nome.localeCompare(b.nome))
+                                .map((insumo, i) => (
+                                    <option key={i} value={insumo.id}>{insumo.nome}</option>
+                                ))}
                         </select>
                         <input
                             style={inputStyle}
