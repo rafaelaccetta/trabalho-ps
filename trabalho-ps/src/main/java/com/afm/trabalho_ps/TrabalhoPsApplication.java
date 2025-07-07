@@ -854,11 +854,20 @@ public class TrabalhoPsApplication implements CommandLineRunner {
         Produto produto1 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Shampoo de Dolomita")).findFirst().orElseThrow();
         Produto produto2 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Sabonete de Maracuja")).findFirst().orElseThrow();
         Produto produto3 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Hidratante Corporal")).findFirst().orElseThrow();
+		Produto produto4 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Sabonete de Pimenta Rosa")).findFirst().orElseThrow();
+		Produto produto5 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Sache Perfumado")).findFirst().orElseThrow();
+		Produto produto6 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Sabonete de Capim Limao")).findFirst().orElseThrow();
+		Produto produto7 = produtoRepository.findAll().stream().filter(p -> p.getNome().equals("Home Spray")).findFirst().orElseThrow();
 
         // ItemProdutos 
         ItemProduto itemProduto1a = itemProdutoRepository.save(new ItemProduto(produto1, 20, new java.math.BigDecimal("20.00")));
         ItemProduto itemProduto2a = itemProdutoRepository.save(new ItemProduto(produto2, 30, new java.math.BigDecimal("12.00")));
         ItemProduto itemProduto3a = itemProdutoRepository.save(new ItemProduto(produto3, 16, new java.math.BigDecimal("30.00")));
+		ItemProduto itemProduto4a = itemProdutoRepository.save(new ItemProduto(produto4, 32, new java.math.BigDecimal("24.00")));
+		ItemProduto itemProduto5a = itemProdutoRepository.save(new ItemProduto(produto5, 12, new java.math.BigDecimal("27.00")));
+		ItemProduto itemProduto6a = itemProdutoRepository.save(new ItemProduto(produto6, 35, new java.math.BigDecimal("24.00")));
+		ItemProduto itemProduto7a = itemProdutoRepository.save(new ItemProduto(produto7, 8, new java.math.BigDecimal("46.00")));
+
 
         // Venda 1
         Venda venda1 = new Venda("FINALIZADA", 40.0, java.time.LocalDate.now(), usuario1);
