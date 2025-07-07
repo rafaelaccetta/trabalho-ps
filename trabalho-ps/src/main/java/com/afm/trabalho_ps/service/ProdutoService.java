@@ -1,6 +1,5 @@
 package com.afm.trabalho_ps.service;
 
-import com.afm.trabalho_ps.dto.CompraResponse;
 import com.afm.trabalho_ps.model.Encomenda;
 import com.afm.trabalho_ps.model.Produto;
 import com.afm.trabalho_ps.repository.ProdutoRepository;
@@ -19,17 +18,14 @@ public class ProdutoService {
     @Autowired
     private InsumoService insumoService;
 
-    // CONSTRUTOR
     public ProdutoService(ProdutoRepository produtoRepository) {
         this.produtoRepository = produtoRepository;
     }
 
-    // CREATE (C)
     public Produto salvar(Produto produto) {
         return produtoRepository.save(produto);
     }
 
-    // READ (R)
     public Optional<Produto> buscar(Long id) {
         return produtoRepository.findById(id);
     }
@@ -38,7 +34,6 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
-    // UPDATE (U)
     public void atualizar(Long id, Produto produtoAtualizado) {
         Optional<Produto> produtoOptional = produtoRepository.findById(id);
         if (produtoOptional.isPresent()) {
@@ -49,7 +44,6 @@ public class ProdutoService {
         }
     }
 
-    // DELETE (D)
     public void deletar(Long id) {
         if (produtoRepository.existsById(id)) {
             produtoRepository.deleteById(id);

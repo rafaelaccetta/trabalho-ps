@@ -2,7 +2,6 @@
 package com.afm.trabalho_ps.service;
 
 import com.afm.trabalho_ps.dto.HistoricoVendaDTO;
-import com.afm.trabalho_ps.dto.ItemHistoricoDTO;
 import com.afm.trabalho_ps.model.ItemVenda;
 import com.afm.trabalho_ps.model.Venda;
 import com.afm.trabalho_ps.repository.VendaRepository;
