@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import MenuSuperior from '../components/MenuSuperior';
 
 const cardStyle: React.CSSProperties = {
   maxWidth: 400,
-  margin: '40px auto',
+  margin: '120px auto 40px',
   padding: '32px 24px',
   borderRadius: 12,
   boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
@@ -30,17 +31,20 @@ const RelatoriosPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={cardStyle}>
-      <h4 style={{ marginBottom: 24, fontWeight: 600, fontSize: 24, color: '#333' }}>
-        Relatórios disponíveis:
-      </h4>
-      <button style={buttonStyle} onClick={() => navigate('/relatorios/produtos')}>
-        Relatório de Produtos
-      </button>
-      <button style={{ ...buttonStyle, background: '#43a047' }} onClick={() => navigate('/relatorios/vendas')}>
-        Relatório de Vendas
-      </button>
-    </div>
+    <>
+      <MenuSuperior />
+      <div style={cardStyle}>
+        <h4 style={{ marginBottom: 24, fontWeight: 600, fontSize: 24, color: '#333' }}>
+          Relatórios disponíveis:
+        </h4>
+        <button style={buttonStyle} onClick={() => navigate('/relatorios/produtos')}>
+          Relatório de Produtos
+        </button>
+        <button style={{ ...buttonStyle, background: '#43a047' }} onClick={() => navigate('/relatorios/vendas')}>
+          Relatório de Vendas
+        </button>
+      </div>
+    </>
   );
 };
 

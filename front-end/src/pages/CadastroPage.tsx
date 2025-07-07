@@ -1,9 +1,10 @@
 import React from 'react'
 import { useNavigate, Outlet, useLocation } from 'react-router-dom'
+import MenuSuperior from '../components/MenuSuperior'
 
 const cardStyle: React.CSSProperties = {
   maxWidth: 400,
-  margin: '40px auto',
+  margin: '120px auto 40px',
   padding: '32px 24px',
   borderRadius: 12,
   boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
@@ -27,21 +28,34 @@ const buttonStyle: React.CSSProperties = {
 }
 
 const CadastroPage = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const isRootCadastro = location.pathname === '/cadastro';
+  const navigate = useNavigate()
+  const location = useLocation()
+  const isRootCadastro = location.pathname === '/cadastro'
+
   return (
-    <div style={isRootCadastro ? cardStyle : {}}>
-      {isRootCadastro ? (
-        <>
-          <h4 style={{marginBottom: 24, fontWeight: 600, fontSize: 24, color: '#333'}}>Escolha o que deseja cadastrar:</h4>
-          <button style={buttonStyle} onClick={() => navigate('/cadastro/produto')}>Cadastrar Produto</button>
-          <button style={{...buttonStyle, background: '#43a047'}} onClick={() => navigate('/cadastro/insumo')}>Cadastrar Insumo</button>
-        </>
-      ) : (
-        <Outlet />
-      )}
-    </div>
+    <>
+      <MenuSuperior />
+      <div style={isRootCadastro ? cardStyle : { marginTop: '80px' }}>
+        {isRootCadastro ? (
+          <>
+            <h4 style={{ marginBottom: 24, fontWeight: 600, fontSize: 24, color: '#333' }}>
+              Escolha o que deseja cadastrar:
+            </h4>
+            <button style={buttonStyle} onClick={() => navigate('/cadastro/produto')}>
+              Cadastrar Produto
+            </button>
+            <button
+              style={{ ...buttonStyle, background: '#43a047' }}
+              onClick={() => navigate('/cadastro/insumo')}
+            >
+              Cadastrar Insumo
+            </button>
+          </>
+        ) : (
+          <Outlet />
+        )}
+      </div>
+    </>
   )
 }
 
